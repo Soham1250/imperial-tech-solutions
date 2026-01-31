@@ -1,6 +1,6 @@
-import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { MethodologyGrid } from "@/components/sections/MethodologyGrid";
 import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
@@ -8,6 +8,8 @@ export default function Home() {
     <main className="relative min-h-screen">
       <Navbar />
       <Hero />
+
+      <MethodologyGrid />
 
       {/* Placeholder for future sections */}
       <section id="services" className="h-96 flex items-center justify-center bg-card">

@@ -7,10 +7,10 @@ import { Menu, X, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+    { name: "Process", href: "/planning" },
     { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
+    { name: "Methodology", href: "/research" },
     { name: "Why Us", href: "#why-us" },
-    { name: "Testimonials", href: "#testimonials" },
 ];
 
 export const Navbar = () => {
