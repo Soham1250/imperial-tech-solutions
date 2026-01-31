@@ -12,9 +12,9 @@ export default function Home() {
       <MethodologyGrid />
 
       {/* Placeholder for future sections */}
-      <section id="services" className="h-96 flex items-center justify-center bg-card">
+      {/* <section id="services" className="h-96 flex items-center justify-center bg-card">
         <h2 className="text-3xl font-bold">More Content Coming Soon...</h2>
-      </section>
+      </section> */}
 
       <Footer />
     </main>

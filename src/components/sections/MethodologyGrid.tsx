@@ -14,8 +14,8 @@ import {
 } from "lucide-react";
 
 const phases = [
-    { name: "Research", href: "/research", icon: Search },
     { name: "Planning", href: "/planning", icon: Map },
+    { name: "Research", href: "/research", icon: Search },
     { name: "PRD", href: "/prd", icon: FileText },
     { name: "Design", href: "/design", icon: Palette },
     { name: "Implementation", href: "/implementation", icon: Terminal },
