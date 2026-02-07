@@ -64,25 +64,7 @@ export const Hero = () => {
                     </Link>
                 </motion.div>
 
-                {/* Stats / Proof */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-border pt-12 w-full"
-                >
-                    {[
-                        { label: "Active Clients", value: "20+" },
-                        { label: "ROI Delivered", value: "3.5x" },
-                        { label: "AI Automations", value: "150+" },
-                        { label: "Project Success", value: "100%" },
-                    ].map((stat, i) => (
-                        <div key={i} className="flex flex-col gap-1">
-                            <span className="text-3xl font-bold">{stat.value}</span>
-                            <span className="text-sm text-foreground/40 uppercase tracking-wider">{stat.label}</span>
-                        </div>
-                    ))}
-                </motion.div>
+
             </div>
         </section>
     );

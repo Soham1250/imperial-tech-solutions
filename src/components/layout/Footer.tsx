@@ -64,13 +64,10 @@ export const Footer = () => {
                             <Mail className="w-5 h-5 text-primary shrink-0" />
                             <span>hello@imperialtech.com</span>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <Phone className="w-5 h-5 text-primary shrink-0" />
-                            <span>+91 98765 43210</span>
-                        </div>
+
                         <div className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-primary shrink-0" />
-                            <span>123 Tech Hub, Bengaluru, India</span>
+                            <span>Tech Hub, Bengaluru, India</span>
                         </div>
                     </div>
                 </div>
