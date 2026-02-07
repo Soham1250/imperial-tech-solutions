@@ -19,7 +19,7 @@ const faqs = [
     },
     {
         question: "How much does a project typically cost?",
-        answer: "Costs vary significantly based on project requirements. Simple websites start at ₹2,50,000, while complex AI automation systems can range from ₹8,30,000 to ₹41,50,000+. We offer transparent pricing and provide detailed quotes after understanding your specific needs during a free consultation."
+        answer: "Our pricing is transparent and highly competitive. Simple projects start at ₹1,500, while even the most complex AI-leveraged systems are capped at ₹10,000. We believe in providing premium tech leverage at accessible rates for startups and SMBs."
     },
     {
         question: "Can you help with existing projects or just new builds?",
@@ -94,7 +94,7 @@ export const FAQ = () => {
     return (
         <section id="faq" className="py-24 px-6 bg-background">
             <div className="max-w-4xl mx-auto">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -124,8 +124,8 @@ export const FAQ = () => {
                     <p className="text-foreground/60 mb-6">
                         Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help.
                     </p>
-                    <a 
-                        href="#contact" 
+                    <a
+                        href="#contact"
                         className="button-primary inline-flex items-center gap-2"
                     >
                         Contact Us

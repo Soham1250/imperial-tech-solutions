@@ -2,15 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-    Code2, 
-    Brain, 
-    Smartphone, 
-    Search, 
-    Zap, 
-    Globe, 
+import {
+    Code2,
+    Brain,
+    Smartphone,
+    Search,
+    Zap,
+    Globe,
     Check,
-    ArrowRight 
+    ArrowRight
 } from "lucide-react";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const services = [
         title: "Web Development",
         description: "Custom web applications built with modern tech stacks. Fast, scalable, and SEO-optimized.",
         features: ["React/Next.js", "Full-stack solutions", "API integration", "Performance optimized"],
-        price: "Starting at ₹2,50,000",
+        price: "Starting at ₹2,500",
         popular: false
     },
     {
@@ -28,7 +28,7 @@ const services = [
         title: "AI Automation",
         description: "Intelligent automation systems that streamline operations and boost productivity with AI agents.",
         features: ["Custom AI agents", "Workflow automation", "Data processing", "Smart integrations"],
-        price: "Starting at ₹3,30,000",
+        price: "Starting at ₹4,500",
         popular: true
     },
     {
@@ -36,7 +36,7 @@ const services = [
         title: "SEO Optimization",
         description: "Data-driven SEO strategies that increase organic traffic and improve search rankings.",
         features: ["Technical SEO", "Content strategy", "Link building", "Analytics tracking"],
-        price: "Starting at ₹1,25,000/mo",
+        price: "Starting at ₹1,500/mo",
         popular: false
     },
     {
@@ -44,7 +44,7 @@ const services = [
         title: "Mobile Apps",
         description: "Native and cross-platform mobile applications for iOS and Android.",
         features: ["React Native", "Native iOS/Android", "App store deployment", "Push notifications"],
-        price: "Starting at ₹4,15,000",
+        price: "Starting at ₹8,000",
         popular: false
     },
     {
@@ -52,7 +52,7 @@ const services = [
         title: "Digital Transformation",
         description: "End-to-end digital transformation consulting and implementation services.",
         features: ["Strategy consulting", "Process automation", "Legacy modernization", "Training"],
-        price: "Custom pricing",
+        price: "Capped at ₹10,000",
         popular: false
     }
 ];
@@ -62,7 +62,7 @@ export const Services = () => {
         <section id="services" className="py-24 px-6 bg-background">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <motion.h2 
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -70,7 +70,7 @@ export const Services = () => {
                     >
                         Our Services
                     </motion.h2>
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -89,14 +89,14 @@ export const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            whileHover={{ 
+                            whileHover={{
                                 y: -10,
                                 transition: { duration: 0.3 }
                             }}
                             className="relative group"
                         >
                             {service.popular && (
-                                <motion.div 
+                                <motion.div
                                     className="absolute -top-4 left-1/2 -translate-x-1/2 z-10"
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
@@ -108,10 +108,9 @@ export const Services = () => {
                                 </motion.div>
                             )}
                             <div className={
-                                `h-full p-8 rounded-2xl border transition-all duration-300 backdrop-blur-sm relative overflow-hidden ${
-                                    service.popular 
-                                        ? "bg-primary/5 border-primary/50 shadow-lg shadow-primary/10" 
-                                        : "bg-white/5 border-white/10 hover:border-primary/50 hover:bg-primary/5"
+                                `h-full p-8 rounded-2xl border transition-all duration-300 backdrop-blur-sm relative overflow-hidden ${service.popular
+                                    ? "bg-primary/5 border-primary/50 shadow-lg shadow-primary/10"
+                                    : "bg-white/5 border-white/10 hover:border-primary/50 hover:bg-primary/5"
                                 }`
                             }>
                                 {/* Hover gradient effect */}
@@ -120,11 +119,11 @@ export const Services = () => {
                                 </div>
 
                                 <div className="relative z-10">
-                                    <motion.div 
+                                    <motion.div
                                         className="mb-6"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <motion.div 
+                                        <motion.div
                                             className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all"
                                             whileHover={{ rotate: 360 }}
                                             transition={{ duration: 0.6 }}
@@ -137,8 +136,8 @@ export const Services = () => {
 
                                     <ul className="space-y-3 mb-6">
                                         {service.features.map((feature, index) => (
-                                            <motion.li 
-                                                key={feature} 
+                                            <motion.li
+                                                key={feature}
                                                 className="flex items-center gap-2 text-sm"
                                                 initial={{ opacity: 0, x: -20 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +150,7 @@ export const Services = () => {
                                     </ul>
 
                                     <div className="pt-6 border-t border-white/10">
-                                        <motion.p 
+                                        <motion.p
                                             className="text-2xl font-bold mb-4"
                                             whileHover={{ scale: 1.05, color: "#6366f1" }}
                                         >
@@ -161,8 +160,8 @@ export const Services = () => {
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                         >
-                                            <Link 
-                                                href="#contact" 
+                                            <Link
+                                                href="#contact"
                                                 className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all group/btn"
                                             >
                                                 Get Started
