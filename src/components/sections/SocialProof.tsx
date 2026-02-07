@@ -2,12 +2,12 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { 
-    Code2, 
-    Database, 
-    Cloud, 
-    Sparkles, 
-    Zap, 
+import {
+    Code2,
+    Database,
+    Cloud,
+    Sparkles,
+    Zap,
     Palette,
     Brain,
     Lock,
@@ -75,7 +75,7 @@ const StatCard = ({ value, label, suffix }: { value: number; label: string; suff
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -5 }}
-            className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all"
+            className="text-center p-6 rounded-2xl bg-white border-2 border-primary/10 hover:border-primary/40 transition-all shadow-sm hover:shadow-md"
         >
             <div className="text-5xl md:text-6xl font-bold text-gradient mb-2">
                 {count}{suffix}
@@ -99,7 +99,7 @@ export const SocialProof = () => {
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Stats Section */}
                 <div className="mb-24">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -145,28 +145,28 @@ export const SocialProof = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -10, scale: 1.02 }}
-                                className="relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group overflow-hidden"
+                                className="relative p-8 rounded-2xl bg-white border-2 border-primary/10 hover:border-primary/40 transition-all group overflow-hidden shadow-sm hover:shadow-md"
                             >
                                 {/* Gradient overlay */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div 
+                                    <div
                                         className="absolute inset-0 opacity-10"
-                                        style={{ 
-                                            background: `linear-gradient(135deg, ${stack.color}20, transparent)` 
+                                        style={{
+                                            background: `linear-gradient(135deg, ${stack.color}20, transparent)`
                                         }}
                                     />
                                 </div>
 
                                 <div className="relative z-10">
                                     {/* Icon */}
-                                    <motion.div 
-                                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all"
-                                        style={{ backgroundColor: `${stack.color}15` }}
+                                    <motion.div
+                                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all border-2 border-transparent"
+                                        style={{ backgroundColor: `${stack.color}25` }}
                                         whileHover={{ rotate: 360 }}
                                         transition={{ duration: 0.6 }}
                                     >
-                                        <stack.icon 
-                                            className="w-7 h-7" 
+                                        <stack.icon
+                                            className="w-7 h-7"
                                             style={{ color: stack.color }}
                                         />
                                     </motion.div>
@@ -183,12 +183,12 @@ export const SocialProof = () => {
                                                 transition={{ delay: i * 0.1 + index * 0.05 }}
                                                 onHoverStart={() => setHoveredTech(tech)}
                                                 onHoverEnd={() => setHoveredTech(null)}
-                                                whileHover={{ 
+                                                whileHover={{
                                                     scale: 1.15,
                                                     backgroundColor: `${stack.color}30`,
                                                     color: stack.color
                                                 }}
-                                                className="px-3 py-1.5 bg-white/5 text-xs text-foreground/70 rounded-full border border-white/10 transition-all cursor-default"
+                                                className="px-3 py-1.5 bg-primary/5 text-xs text-foreground font-bold rounded-full border border-primary/20 transition-all cursor-default"
                                             >
                                                 {tech}
                                             </motion.span>
@@ -197,7 +197,7 @@ export const SocialProof = () => {
                                 </div>
 
                                 {/* Corner decoration */}
-                                <motion.div 
+                                <motion.div
                                     className="absolute top-0 right-0 w-20 h-20 rounded-bl-full opacity-20"
                                     style={{ backgroundColor: stack.color }}
                                     initial={{ scale: 0 }}

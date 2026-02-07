@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { 
-    Code, 
-    Smartphone, 
-    Brain, 
-    Rocket, 
-    Shield, 
+import {
+    Code,
+    Smartphone,
+    Brain,
+    Rocket,
+    Shield,
     Zap,
     TrendingUp,
     Globe,
@@ -106,29 +106,29 @@ export const Portfolio = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <section id="portfolio" className="py-24 px-6 bg-background border-t border-border relative overflow-hidden">
+        <section id="portfolio" className="py-24 px-6 bg-gradient-to-b from-[#e8f5e9] to-[#fdfaf3] relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/5 rounded-full blur-[100px]" />
+                <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        What We Build
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4 font-sans text-foreground">
+                        Our Gallery of Wonders
                     </h2>
-                    <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
-                        Comprehensive capabilities to bring your vision to life with modern technology
+                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
+                        A curation of our most magical work, built with love and attention to every detail.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {capabilities.map((capability, i) => {
                         const mouseX = useMotionValue(0);
                         const mouseY = useMotionValue(0);
@@ -163,44 +163,44 @@ export const Portfolio = () => {
                                     perspective: 1000,
                                 }}
                                 whileHover={{ scale: 1.02, z: 50 }}
-                                className="group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-default"
+                                className="group relative rounded-2xl overflow-hidden bg-white border-2 border-primary/10 hover:border-primary/40 transition-all cursor-default shadow-sm hover:shadow-md"
                             >
                                 {/* Gradient header */}
                                 <div className="relative h-32 overflow-hidden">
-                                    <div 
+                                    <div
                                         className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-20`}
                                     />
-                                    <motion.div 
+                                    <motion.div
                                         className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-background"
                                         initial={{ opacity: 0.7 }}
                                         whileHover={{ opacity: 0.9 }}
                                     />
-                                    
+
                                     {/* Icon */}
                                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                         <motion.div
                                             className="w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-sm"
-                                            style={{ 
+                                            style={{
                                                 backgroundColor: `${capability.color}20`,
                                                 border: `2px solid ${capability.color}40`
                                             }}
                                             whileHover={{ rotate: 360, scale: 1.1 }}
                                             transition={{ duration: 0.6 }}
                                         >
-                                            <capability.icon 
-                                                className="w-8 h-8" 
+                                            <capability.icon
+                                                className="w-8 h-8"
                                                 style={{ color: capability.color }}
                                             />
                                         </motion.div>
                                     </div>
 
-                                    <motion.div 
+                                    <motion.div
                                         className="absolute top-4 right-4"
                                         initial={{ scale: 0, rotate: -180 }}
                                         whileInView={{ scale: 1, rotate: 0 }}
                                         transition={{ delay: i * 0.1 + 0.2, type: "spring" }}
                                     >
-                                        <span 
+                                        <span
                                             className="px-3 py-1 backdrop-blur-sm text-white text-xs font-semibold rounded-full"
                                             style={{ backgroundColor: `${capability.color}80` }}
                                         >
@@ -211,31 +211,31 @@ export const Portfolio = () => {
 
                                 {/* Content */}
                                 <div className="p-6 relative" style={{ transform: "translateZ(20px)" }}>
-                                    <motion.h3 
+                                    <motion.h3
                                         className="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
                                         whileHover={{ x: 5 }}
                                     >
                                         {capability.title}
                                     </motion.h3>
-                                    <p className="text-foreground/60 text-sm leading-relaxed mb-4">
+                                    <p className="text-foreground font-medium text-sm leading-relaxed mb-4 opacity-80">
                                         {capability.description}
                                     </p>
 
                                     {/* Features */}
                                     <div className="space-y-2 mb-4">
                                         {capability.features.map((feature, index) => (
-                                            <motion.div 
+                                            <motion.div
                                                 key={feature}
                                                 className="flex items-center gap-2 text-sm"
                                                 initial={{ opacity: 0, x: -20 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: i * 0.1 + index * 0.1 }}
                                             >
-                                                <div 
-                                                    className="w-1.5 h-1.5 rounded-full"
+                                                <div
+                                                    className="w-2.5 h-2.5 rounded-full shadow-sm"
                                                     style={{ backgroundColor: capability.color }}
                                                 />
-                                                <span className="text-foreground/70">{feature}</span>
+                                                <span className="text-foreground font-semibold">{feature}</span>
                                             </motion.div>
                                         ))}
                                     </div>

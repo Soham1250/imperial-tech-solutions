@@ -59,29 +59,29 @@ const services = [
 
 export const Services = () => {
     return (
-        <section id="services" className="py-24 px-6 bg-background">
+        <section id="services" className="py-24 px-6 bg-gradient-to-b from-[#fdfaf3] to-[#e8f5e9]">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold mb-4"
+                        className="text-5xl md:text-6xl font-bold mb-4 font-sans text-foreground"
                     >
-                        Our Services
+                        Our Hand-Crafted Services
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-foreground/60 text-lg max-w-2xl mx-auto"
+                        className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand"
                     >
-                        Comprehensive digital solutions designed to scale your business and automate growth.
+                        Every project is a unique story. We build digital experiences with the care and detail of a master artisan.
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {services.map((service, i) => (
                         <motion.div
                             key={service.title}
@@ -90,69 +90,66 @@ export const Services = () => {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                             whileHover={{
-                                y: -10,
+                                y: -12,
                                 transition: { duration: 0.3 }
                             }}
                             className="relative group"
                         >
                             {service.popular && (
                                 <motion.div
-                                    className="absolute -top-4 left-1/2 -translate-x-1/2 z-10"
+                                    className="absolute -top-5 left-1/2 -translate-x-1/2 z-10"
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     transition={{ delay: i * 0.1 + 0.3, type: "spring" }}
                                 >
-                                    <span className="px-4 py-1 bg-primary text-white text-sm font-semibold rounded-full shadow-lg animate-gradient">
-                                        Most Popular
+                                    <span className="px-6 py-1.5 bg-accent text-white text-sm font-bold rounded-full shadow-md animate-bounce font-hand">
+                                        Community Favorite
                                     </span>
                                 </motion.div>
                             )}
                             <div className={
-                                `h-full p-8 rounded-2xl border transition-all duration-300 backdrop-blur-sm relative overflow-hidden ${service.popular
-                                    ? "bg-primary/5 border-primary/50 shadow-lg shadow-primary/10"
-                                    : "bg-white/5 border-white/10 hover:border-primary/50 hover:bg-primary/5"
+                                `h-full p-8 rounded-[40px] transition-all duration-300 relative overflow-hidden bg-white shadow-md border-2 ${service.popular
+                                    ? "border-accent/60 bg-accent/[0.03] ring-4 ring-accent/10"
+                                    : "border-primary/30 hover:border-primary/60"
                                 }`
                             }>
-                                {/* Hover gradient effect */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-                                </div>
+                                {/* Hand-drawn border effect */}
+                                <div className="absolute inset-0 border-[3px] border-black/10 rounded-[40px] pointer-events-none m-1" style={{ borderRadius: '45px 15px 35px 25px/25px 35px 15px 45px' }} />
 
-                                <div className="relative z-10">
+                                <div className="relative z-10 font-sans">
                                     <motion.div
                                         className="mb-6"
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         <motion.div
-                                            className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all"
-                                            whileHover={{ rotate: 360 }}
-                                            transition={{ duration: 0.6 }}
+                                            className="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 border-2 border-secondary/30"
+                                            whileHover={{ rotate: [0, -10, 10, 0] }}
                                         >
-                                            <service.icon className="w-7 h-7 text-primary" />
+                                            <service.icon className="w-8 h-8 text-secondary-foreground" />
                                         </motion.div>
-                                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                                        <p className="text-foreground/60 leading-relaxed">{service.description}</p>
+                                        <h3 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h3>
+                                        <p className="text-foreground/70 leading-relaxed text-lg">{service.description}</p>
                                     </motion.div>
 
-                                    <ul className="space-y-3 mb-6">
+                                    <ul className="space-y-4 mb-8">
                                         {service.features.map((feature, index) => (
                                             <motion.li
                                                 key={feature}
-                                                className="flex items-center gap-2 text-sm"
-                                                initial={{ opacity: 0, x: -20 }}
+                                                className="flex items-center gap-3 text-md"
+                                                initial={{ opacity: 0, x: -10 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: i * 0.1 + index * 0.1 }}
                                             >
-                                                <Check className="w-4 h-4 text-primary shrink-0" />
-                                                <span className="text-foreground/70">{feature}</span>
+                                                <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm" />
+                                                <span className="text-foreground font-medium">{feature}</span>
                                             </motion.li>
                                         ))}
                                     </ul>
 
-                                    <div className="pt-6 border-t border-white/10">
+                                    <div className="pt-6 border-t border-black/5">
                                         <motion.p
-                                            className="text-2xl font-bold mb-4"
-                                            whileHover={{ scale: 1.05, color: "#6366f1" }}
+                                            className="text-3xl font-bold mb-6 font-hand text-secondary-foreground"
+                                            whileHover={{ scale: 1.05, x: 5 }}
                                         >
                                             {service.price}
                                         </motion.p>
@@ -162,10 +159,10 @@ export const Services = () => {
                                         >
                                             <Link
                                                 href="#contact"
-                                                className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all group/btn"
+                                                className="inline-flex items-center gap-3 text-foreground font-bold hover:text-primary transition-all group/btn bg-primary/10 px-6 py-2 rounded-xl border border-primary/20"
                                             >
-                                                Get Started
-                                                <ArrowRight className="w-4 h-4" />
+                                                Send a Message
+                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </motion.div>
                                     </div>

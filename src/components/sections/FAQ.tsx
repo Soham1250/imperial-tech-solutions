@@ -56,7 +56,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="border-b border-white/10 last:border-0"
+            className="border-b border-primary/10 last:border-0"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -80,7 +80,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                     >
-                        <p className="pb-6 text-foreground/60 leading-relaxed">
+                        <p className="pb-6 text-foreground font-medium leading-relaxed opacity-80">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -92,7 +92,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
 
 export const FAQ = () => {
     return (
-        <section id="faq" className="py-24 px-6 bg-background">
+        <section id="faq" className="py-24 px-6 bg-gradient-to-b from-[#fdfaf3] to-[#e8f5e9]">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -100,15 +100,15 @@ export const FAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Frequently Asked Questions
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4 font-sans text-foreground">
+                        Questions & Wonders
                     </h2>
-                    <p className="text-foreground/60 text-lg">
-                        Everything you need to know about working with us
+                    <p className="text-foreground/60 text-xl font-hand">
+                        Everything you might want to know about our magical process.
                     </p>
                 </motion.div>
 
-                <div className="bg-white/5 rounded-2xl border border-white/10 p-8">
+                <div className="p-8 md:p-12 bg-white rounded-[40px] border-2 border-primary/20 shadow-xl">
                     {faqs.map((faq, index) => (
                         <FAQItem key={index} faq={faq} index={index} />
                     ))}
@@ -118,17 +118,17 @@ export const FAQ = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-12 text-center p-8 rounded-2xl bg-primary/5 border border-primary/20"
+                    className="mt-12 text-center p-10 rounded-[40px] bg-white border-2 border-secondary/20 shadow-sm font-hand"
                 >
-                    <h3 className="text-xl font-bold mb-2">Still have questions?</h3>
-                    <p className="text-foreground/60 mb-6">
-                        Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help.
+                    <h3 className="text-2xl font-bold mb-2 font-sans">Still have questions?</h3>
+                    <p className="text-foreground/60 text-lg mb-6">
+                        Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help you out.
                     </p>
                     <a
                         href="#contact"
-                        className="button-primary inline-flex items-center gap-2"
+                        className="button-primary inline-flex items-center gap-2 text-lg"
                     >
-                        Contact Us
+                        Send a Message
                     </a>
                 </motion.div>
             </div>

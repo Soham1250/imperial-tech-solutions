@@ -19,7 +19,9 @@ export const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            // Show navbar as the landing page parallax completes
+            const threshold = window.innerHeight * 1.8;
+            setIsScrolled(window.scrollY > threshold);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -28,26 +30,32 @@ export const Navbar = () => {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-                isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border py-3" : "bg-transparent"
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 py-4",
+                isScrolled
+                    ? "bg-white/60 backdrop-blur-md border-b border-primary/10 py-3 shadow-sm opacity-100 translate-y-0"
+                    : "bg-transparent opacity-0 -translate-y-10 pointer-events-none"
             )}
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <motion.div 
-                        className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300"
+                <Link href="/" className="flex items-center gap-3 group">
+                    <motion.div
+                        className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 border-2 border-primary/30"
                         whileHover={{ rotate: 180, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
                     >
-                        <Rocket className="text-white w-6 h-6" />
+                        <motion.div
+                            animate={{ y: [0, -4, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        >
+                            <Rocket className="text-primary w-7 h-7" />
+                        </motion.div>
                     </motion.div>
-                    <span className="text-xl font-bold tracking-tight">
-                        Imperial<span className="text-primary">Tech</span>
+                    <span className="text-2xl font-bold tracking-tight text-foreground">
+                        Imperial<span className="text-secondary font-hand">Tech</span>
                     </span>
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-10">
                     {navLinks.map((link, index) => (
                         <motion.div
                             key={link.name}
@@ -57,11 +65,11 @@ export const Navbar = () => {
                         >
                             <Link
                                 href={link.href}
-                                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors relative group"
+                                className="text-lg font-bold text-foreground/80 hover:text-foreground transition-colors relative group font-hand"
                             >
                                 {link.name}
-                                <motion.span 
-                                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"
+                                <motion.span
+                                    className="absolute -bottom-1 left-0 w-0 h-1 bg-secondary rounded-full group-hover:w-full transition-all duration-300 shadow-[0_2px_4px_rgba(168,214,114,0.4)]"
                                 />
                             </Link>
                         </motion.div>
@@ -70,11 +78,11 @@ export const Navbar = () => {
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.4, type: "spring" }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.05, rotate: 2 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Link href="#contact" className="button-primary text-sm px-6 py-2.5">
-                            Get Started
+                        <Link href="#contact" className="button-primary text-sm px-8 py-3 !text-foreground">
+                            Connect
                         </Link>
                     </motion.div>
                 </div>

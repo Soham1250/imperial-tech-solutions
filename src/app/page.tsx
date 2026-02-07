@@ -9,11 +9,13 @@ import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { ScrollIntro } from "@/components/sections/ScrollIntro";
 
 export default function Home() {
   return (
     <>
       <ScrollProgress />
+      <ScrollIntro />
       <main className="relative min-h-screen">
         <Navbar />
         <Hero />

@@ -25,16 +25,16 @@ const phases = [
 
 export const MethodologyGrid = () => {
     return (
-        <section className="py-24 px-6 bg-background border-t border-border">
+        <section className="py-24 px-6 bg-[#fdfaf3] border-t-2 border-primary/10">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Methodology</h2>
-                    <p className="text-foreground/60 max-w-2xl">
-                        A systematic approach to building high-performance digital products and AI solutions.
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Our Magical Craft</h2>
+                    <p className="text-foreground/60 text-xl font-hand max-w-2xl">
+                        A slow-brewed, thoughtful approach to building digital wonders.
                     </p>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-6">
                     {phases.map((phase, i) => (
                         <motion.div
                             key={phase.name}
@@ -45,10 +45,10 @@ export const MethodologyGrid = () => {
                         >
                             <Link
                                 href={phase.href}
-                                className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/5 transition-all group"
+                                className="inline-flex items-center gap-4 px-8 py-5 rounded-3xl bg-white border-2 border-primary/20 hover:border-secondary/50 hover:bg-secondary/5 transition-all group shadow-sm hover:shadow-md"
                             >
-                                <phase.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                <span className="font-semibold text-lg">{phase.name}</span>
+                                <phase.icon className="w-6 h-6 text-secondary group-hover:scale-125 group-hover:rotate-12 transition-transform" />
+                                <span className="font-bold text-xl font-hand text-foreground/80">{phase.name}</span>
                             </Link>
                         </motion.div>
                     ))}

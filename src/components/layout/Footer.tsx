@@ -6,20 +6,20 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-background border-t border-border pt-20 pb-10 px-6">
+        <footer className="bg-gradient-to-t from-secondary/20 to-[#fdfaf3] border-t-2 border-primary/10 pt-20 pb-10 px-6">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
                 {/* Brand */}
                 <div className="flex flex-col gap-6">
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                            <Rocket className="text-white w-6 h-6" />
+                    <Link href="/" className="flex items-center gap-3 group">
+                        <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 border-2 border-primary/30">
+                            <Rocket className="text-primary w-7 h-7" />
                         </div>
-                        <span className="text-xl font-bold tracking-tight">
-                            Imperial<span className="text-primary">Tech</span>
+                        <span className="text-2xl font-bold tracking-tight text-foreground">
+                            Imperial<span className="text-secondary font-hand">Tech</span>
                         </span>
                     </Link>
-                    <p className="text-foreground/60 text-sm leading-relaxed max-w-xs">
-                        Empowering SMBs and startups with cutting-edge AI solutions and premium digital development. We build for outcomes, not just features.
+                    <p className="text-foreground/70 text-lg leading-relaxed max-w-xs font-hand">
+                        Building digital treasures with the heart of a storyteller. We believe every project deserves a touch of magic.
                     </p>
                     <div className="flex items-center gap-4">
                         <Link href="#" className="p-2 rounded-lg bg-card border border-border hover:border-primary transition-colors">

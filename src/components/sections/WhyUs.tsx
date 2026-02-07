@@ -2,12 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-    Rocket, 
-    Target, 
-    Lightbulb, 
-    Shield, 
-    Zap, 
+import {
+    Rocket,
+    Target,
+    Lightbulb,
+    Shield,
+    Zap,
     Users,
     TrendingUp,
     Award
@@ -60,7 +60,7 @@ export const WhyUs = () => {
     return (
         <section id="why-us" className="py-24 px-6 bg-card/30">
             <div className="max-w-7xl mx-auto">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -82,12 +82,12 @@ export const WhyUs = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
-                            whileHover={{ 
+                            whileHover={{
                                 y: -10,
                                 rotateY: 5,
                                 transition: { duration: 0.3 }
                             }}
-                            className="p-6 rounded-2xl bg-background border border-white/10 hover:border-primary/50 hover:bg-primary/5 transition-all group relative overflow-hidden"
+                            className="p-6 rounded-2xl bg-white border-2 border-primary/10 hover:border-primary/40 transition-all group relative overflow-hidden shadow-sm hover:shadow-md"
                             style={{ transformStyle: "preserve-3d" }}
                         >
                             {/* Animated background gradient */}
@@ -96,7 +96,7 @@ export const WhyUs = () => {
                             </div>
 
                             <div className="relative z-10">
-                                <motion.div 
+                                <motion.div
                                     className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all"
                                     whileHover={{ rotate: 360, scale: 1.1 }}
                                     transition={{ duration: 0.6 }}
@@ -104,13 +104,13 @@ export const WhyUs = () => {
                                     <feature.icon className="w-6 h-6 text-primary" />
                                 </motion.div>
                                 <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
-                                <p className="text-foreground/60 text-sm leading-relaxed">
+                                <p className="text-foreground font-medium text-sm leading-relaxed opacity-80">
                                     {feature.description}
                                 </p>
                             </div>
 
                             {/* Corner decoration */}
-                            <motion.div 
+                            <motion.div
                                 className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full"
                                 initial={{ scale: 0, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 1 }}
@@ -134,7 +134,7 @@ export const WhyUs = () => {
                     ].map((item, i) => (
                         <motion.div
                             key={item.label}
-                            className={`text-center p-8 rounded-2xl bg-${item.color}/5 border border-${item.color}/20 relative overflow-hidden group`}
+                            className={`text-center p-8 rounded-2xl bg-${item.color}/10 border-2 border-${item.color}/30 relative overflow-hidden group shadow-sm hover:shadow-md`}
                             whileHover={{ scale: 1.05, y: -5 }}
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -143,7 +143,7 @@ export const WhyUs = () => {
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <div className={`absolute inset-0 bg-gradient-to-br from-${item.color}/10 to-transparent`} />
                             </div>
-                            <motion.div 
+                            <motion.div
                                 className={`text-4xl font-bold text-${item.color} mb-2 relative z-10`}
                                 whileHover={{ scale: 1.2, rotate: 5 }}
                             >
