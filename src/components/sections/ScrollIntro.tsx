@@ -56,10 +56,10 @@ export const ScrollIntro = () => {
                         filter: headingBlur,
                     }}
                 >
-                    <h1 className="text-7xl md:text-9xl font-bold font-cursive text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)] mb-4">
+                    <h1 className="text-7xl md:text-9xl font-bold text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)] mb-4">
                         Imperial Tech
                     </h1>
-                    <p className="text-3xl font-cursive text-white/80 tracking-widest">
+                    <p className="text-3xl text-white/80 tracking-widest">
                         EST. 2026
                     </p>
                 </motion.div>
@@ -75,7 +75,7 @@ export const ScrollIntro = () => {
                     }}
                 >
                     <div className="flex flex-col items-center gap-2">
-                        <span className="text-white font-hand text-lg animate-pulse">Begin Journey</span>
+                        <span className="text-white text-lg animate-pulse">Begin Journey</span>
                         <div className="w-1 h-12 bg-white/20 rounded-full relative overflow-hidden">
                             <motion.div
                                 className="absolute top-0 left-0 right-0 bg-white h-1/2"

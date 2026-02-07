@@ -87,7 +87,7 @@ export const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         whileHover={{ scale: 1.05, rotate: -2 }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/40 border-2 border-primary/30 text-primary-foreground font-hand text-lg mb-8 hover:bg-white/60 transition-all cursor-default backdrop-blur-sm shadow-sm"
+                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/40 border-2 border-primary/30 text-primary-foreground text-lg mb-8 hover:bg-white/60 transition-all cursor-default backdrop-blur-sm shadow-sm"
                     >
                         <motion.div
                             animate={{ rotate: [0, 10, -10, 0] }}
@@ -187,7 +187,7 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex flex-wrap items-center justify-center gap-10 text-lg font-hand text-foreground/60"
+                        className="flex flex-wrap items-center justify-center gap-10 text-lg text-foreground/60"
                     >
                         {[
                             { label: "30+ Magic Technologies", delay: 0 },

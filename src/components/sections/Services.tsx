@@ -75,7 +75,7 @@ export const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand"
+                        className="text-foreground/60 text-xl max-w-2xl mx-auto"
                     >
                         Every project is a unique story. We build digital experiences with the care and detail of a master artisan.
                     </motion.p>
@@ -102,7 +102,7 @@ export const Services = () => {
                                     whileInView={{ scale: 1 }}
                                     transition={{ delay: i * 0.1 + 0.3, type: "spring" }}
                                 >
-                                    <span className="px-6 py-1.5 bg-accent text-white text-sm font-bold rounded-full shadow-md animate-bounce font-hand">
+                                    <span className="px-6 py-1.5 bg-accent text-white text-sm font-bold rounded-full shadow-md animate-bounce">
                                         Community Favorite
                                     </span>
                                 </motion.div>
@@ -128,7 +128,7 @@ export const Services = () => {
                                             <service.icon className="w-8 h-8 text-secondary-foreground" />
                                         </motion.div>
                                         <h3 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h3>
-                                        <p className="text-foreground/70 leading-relaxed text-lg font-hand">{service.description}</p>
+                                        <p className="text-foreground/70 leading-relaxed text-lg">{service.description}</p>
                                     </motion.div>
 
                                     <ul className="space-y-4 mb-8">
@@ -141,14 +141,14 @@ export const Services = () => {
                                                 transition={{ delay: i * 0.1 + index * 0.1 }}
                                             >
                                                 <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm" />
-                                                <span className="text-foreground font-medium font-hand">{feature}</span>
+                                                <span className="text-foreground font-medium">{feature}</span>
                                             </motion.li>
                                         ))}
                                     </ul>
 
                                     <div className="pt-6 border-t border-black/5">
                                         <motion.p
-                                            className="text-3xl font-bold mb-6 font-hand text-secondary-foreground"
+                                            className="text-3xl font-bold mb-6 text-secondary-foreground"
                                             whileHover={{ scale: 1.05, x: 5 }}
                                         >
                                             {service.price}

@@ -103,7 +103,7 @@ export const FAQ = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Questions & Wonders
                     </h2>
-                    <p className="text-foreground/60 text-xl font-hand">
+                    <p className="text-foreground/60 text-xl">
                         Everything you might want to know about our magical process.
                     </p>
                 </motion.div>
@@ -118,7 +118,7 @@ export const FAQ = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-12 text-center p-10 rounded-[40px] bg-white border-2 border-secondary/20 shadow-sm font-hand"
+                    className="mt-12 text-center p-10 rounded-[40px] bg-white border-2 border-secondary/20 shadow-sm"
                 >
                     <h3 className="text-2xl font-bold mb-2">Still have questions?</h3>
                     <p className="text-foreground/60 text-lg mb-6">

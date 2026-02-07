@@ -77,7 +77,7 @@ export const Contact = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Let&apos;s Start a New Tale
                     </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
+                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto">
                         Ready to bring some magic to your business? Reach out and let&apos;s talk.
                     </p>
                 </motion.div>
@@ -91,7 +91,7 @@ export const Contact = () => {
                         className="space-y-10"
                     >
                         <div>
-                            <h3 className="text-3xl font-bold mb-6 font-hand text-secondary-foreground">Our Studio Address</h3>
+                            <h3 className="text-3xl font-bold mb-6 text-secondary-foreground">Our Studio Address</h3>
                             <p className="text-foreground/70 leading-relaxed text-lg">
                                 we&apos;re here to help you bring your ideas to life.
                                 Send us a message and we&apos;ll get back to you with the same care we put into our code.
@@ -124,7 +124,7 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="p-8 rounded-3xl bg-secondary/10 border-2 border-secondary/20 shadow-md font-hand">
+                        <div className="p-8 rounded-3xl bg-secondary/10 border-2 border-secondary/20 shadow-md">
                             <p className="text-lg text-foreground italic">
                                 <strong className="text-secondary-foreground not-italic">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
                             </p>
@@ -141,7 +141,7 @@ export const Contact = () => {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-lg font-bold mb-2 font-hand">
+                                    <label htmlFor="name" className="block text-lg font-bold mb-2">
                                         Your Name
                                     </label>
                                     <input
@@ -155,12 +155,12 @@ export const Contact = () => {
                                         placeholder="How shall we call you?"
                                     />
                                     {errors.name && (
-                                        <p className="text-accent text-sm mt-2 font-hand">{errors.name}</p>
+                                        <p className="text-accent text-sm mt-2">{errors.name}</p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-lg font-bold mb-2 font-hand">
+                                    <label htmlFor="email" className="block text-lg font-bold mb-2">
                                         Email Address
                                     </label>
                                     <input
@@ -174,13 +174,13 @@ export const Contact = () => {
                                         placeholder="Where should we send our bird?"
                                     />
                                     {errors.email && (
-                                        <p className="text-accent text-sm mt-2 font-hand">{errors.email}</p>
+                                        <p className="text-accent text-sm mt-2">{errors.email}</p>
                                     )}
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="company" className="block text-lg font-bold mb-2 font-hand">
+                                <label htmlFor="company" className="block text-lg font-bold mb-2">
                                     Your Village (Company/Project)
                                 </label>
                                 <input
@@ -195,7 +195,7 @@ export const Contact = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-lg font-bold mb-2 font-hand">
+                                <label htmlFor="message" className="block text-lg font-bold mb-2">
                                     Your Message
                                 </label>
                                 <textarea
@@ -209,7 +209,7 @@ export const Contact = () => {
                                     placeholder="Write your story here..."
                                 />
                                 {errors.message && (
-                                    <p className="text-accent text-sm mt-2 font-hand">{errors.message}</p>
+                                    <p className="text-accent text-sm mt-2">{errors.message}</p>
                                 )}
                             </div>
 

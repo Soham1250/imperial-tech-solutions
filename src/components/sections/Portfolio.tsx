@@ -123,7 +123,7 @@ export const Portfolio = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Our Gallery of Wonders
                     </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
+                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto">
                         A curation of our most magical work, built with love and attention to every detail.
                     </p>
                 </motion.div>

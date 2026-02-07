@@ -80,12 +80,12 @@ export const MethodologyGrid = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-5xl md:text-7xl font-bold mb-6 text-foreground font-cursive">
+                        <h2 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
                             Our Magical Craft
                         </h2>
                         <div className="flex items-center gap-4">
                             <div className="h-[2px] w-20 bg-primary/30" />
-                            <p className="text-foreground/60 text-xl font-hand">
+                            <p className="text-foreground/60 text-xl">
                                 A slow-brewed, thoughtful approach to building digital wonders.
                             </p>
                         </div>
@@ -131,7 +131,7 @@ export const MethodologyGrid = () => {
                                 <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                                     {phase.name}
                                 </h3>
-                                <p className="text-foreground/60 font-hand text-lg mb-6 leading-relaxed">
+                                <p className="text-foreground/60 text-lg mb-6 leading-relaxed">
                                     {phase.description}
                                 </p>
 
@@ -163,7 +163,7 @@ export const MethodologyGrid = () => {
                                 transition={{ duration: 10, repeat: Infinity }}
                             />
                             <h3 className="text-2xl font-bold text-white mb-2 relative z-10">Start Your Story?</h3>
-                            <p className="text-white/80 font-hand mb-6 relative z-10">Let's build something magical together.</p>
+                            <p className="text-white/80 mb-6 relative z-10">Let's build something magical together.</p>
                             <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary group-hover:scale-125 transition-transform relative z-10">
                                 <ArrowRight className="w-6 h-6" />
                             </div>

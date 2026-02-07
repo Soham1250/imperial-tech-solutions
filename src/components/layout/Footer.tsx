@@ -15,10 +15,10 @@ export const Footer = () => {
                             <Rocket className="text-primary w-7 h-7" />
                         </div>
                         <span className="text-2xl font-bold tracking-tight text-foreground">
-                            Imperial<span className="text-secondary font-hand">Tech</span>
+                            <span className="font-cursive">Imperial</span><span className="text-secondary">Tech</span>
                         </span>
                     </Link>
-                    <p className="text-foreground/70 text-lg leading-relaxed max-w-xs font-hand">
+                    <p className="text-foreground/70 text-lg leading-relaxed max-w-xs">
                         Building digital treasures with the heart of a storyteller. We believe every project deserves a touch of magic.
                     </p>
                     <div className="flex items-center gap-4">

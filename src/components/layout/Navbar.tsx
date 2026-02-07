@@ -49,8 +49,8 @@ export const Navbar = () => {
                             <Rocket className="text-primary w-7 h-7" />
                         </motion.div>
                     </motion.div>
-                    <span className="text-3xl font-bold tracking-tight text-foreground font-cursive">
-                        Imperial<span className="text-secondary font-hand ml-1">Tech</span>
+                    <span className="text-3xl font-bold tracking-tight text-foreground">
+                        <span className="font-cursive">Imperial</span><span className="text-secondary ml-1">Tech</span>
                     </span>
                 </Link>
 
@@ -65,7 +65,7 @@ export const Navbar = () => {
                         >
                             <Link
                                 href={link.href}
-                                className="text-lg font-bold text-foreground/80 hover:text-foreground transition-colors relative group font-hand"
+                                className="text-lg font-bold text-foreground/80 hover:text-foreground transition-colors relative group"
                             >
                                 {link.name}
                                 <motion.span
