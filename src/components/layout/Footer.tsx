@@ -38,10 +38,10 @@ export const Footer = () => {
                 <div>
                     <h4 className="font-bold mb-6">Services</h4>
                     <ul className="flex flex-col gap-4 text-sm text-foreground/60">
-                        <li><Link href="#" className="hover:text-primary transition-colors">Web Development</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">SEO Optimization</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">AI Automation</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">Mobile Apps</Link></li>
+                        <li><Link href="#services" className="hover:text-primary transition-colors">Web Development</Link></li>
+                        <li><Link href="#services" className="hover:text-primary transition-colors">SEO Optimization</Link></li>
+                        <li><Link href="#services" className="hover:text-primary transition-colors">AI Automation</Link></li>
+                        <li><Link href="#services" className="hover:text-primary transition-colors">Mobile Apps</Link></li>
                     </ul>
                 </div>
 
@@ -49,10 +49,10 @@ export const Footer = () => {
                 <div>
                     <h4 className="font-bold mb-6">Company</h4>
                     <ul className="flex flex-col gap-4 text-sm text-foreground/60">
-                        <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">Process</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
-                        <li><Link href="#" className="hover:text-primary transition-colors">Contact</Link></li>
+                        <li><Link href="#why-us" className="hover:text-primary transition-colors">About Us</Link></li>
+                        <li><Link href="#portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
+                        <li><Link href="#faq" className="hover:text-primary transition-colors">FAQ</Link></li>
+                        <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
                     </ul>
                 </div>
 
