@@ -106,19 +106,7 @@ export const Contact = () => {
                                 <div>
                                     <h4 className="font-semibold mb-1">Email Us</h4>
                                     <a href="mailto:hello@imperialtech.com" className="text-foreground/60 hover:text-primary transition-colors">
-                                        hello@imperialtech.com
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                                    <Phone className="w-5 h-5 text-primary" />
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold mb-1">Call Us</h4>
-                                    <a href="tel:+911234567890" className="text-foreground/60 hover:text-primary transition-colors">
-                                        +91 123 456 7890
+                                            soham.pansare1250@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -130,8 +118,7 @@ export const Contact = () => {
                                 <div>
                                     <h4 className="font-semibold mb-1">Visit Us</h4>
                                     <p className="text-foreground/60">
-                                        Tech Hub, Koramangala<br />
-                                        Bengaluru, India 560095
+                                        Mumbai, India <br />
                                     </p>
                                 </div>
                             </div>

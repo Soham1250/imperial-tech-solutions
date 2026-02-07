@@ -48,14 +48,6 @@ const services = [
         popular: false
     },
     {
-        icon: Globe,
-        title: "Cloud Solutions",
-        description: "Scalable cloud infrastructure and DevOps solutions for modern applications.",
-        features: ["AWS/Azure/GCP", "CI/CD pipelines", "Container orchestration", "Monitoring"],
-        price: "Custom pricing",
-        popular: false
-    },
-    {
         icon: Zap,
         title: "Digital Transformation",
         description: "End-to-end digital transformation consulting and implementation services.",

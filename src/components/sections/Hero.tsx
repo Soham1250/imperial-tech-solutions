@@ -7,12 +7,13 @@ import Link from "next/link";
 
 export const Hero = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mounted, setMounted] = useState(false);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
     useEffect(() => {
+        setMounted(true);
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
         };
@@ -20,14 +21,14 @@ export const Hero = () => {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, [mouseX, mouseY]);
 
-    const rotateX = useTransform(mouseY, [0, window.innerHeight], [5, -5]);
-    const rotateY = useTransform(mouseX, [0, window.innerWidth], [-5, 5]);
+    const rotateX = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [5, -5]);
+    const rotateY = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1200], [-5, 5]);
 
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 overflow-hidden">
             {/* Enhanced Background with moving gradients */}
             <div className="absolute top-0 left-0 right-0 h-full w-full pointer-events-none">
-                <motion.div 
+                <motion.div
                     className="absolute top-[10%] left-[5%] w-[40rem] h-[40rem] bg-primary/20 rounded-full blur-[120px]"
                     animate={{
                         scale: [1, 1.2, 1],
@@ -39,7 +40,7 @@ export const Hero = () => {
                         ease: "easeInOut"
                     }}
                 />
-                <motion.div 
+                <motion.div
                     className="absolute bottom-[10%] right-[5%] w-[35rem] h-[35rem] bg-secondary/20 rounded-full blur-[100px]"
                     animate={{
                         scale: [1, 1.3, 1],
@@ -52,7 +53,7 @@ export const Hero = () => {
                         delay: 1
                     }}
                 />
-                <motion.div 
+                <motion.div
                     className="absolute top-[40%] right-[20%] w-[20rem] h-[20rem] bg-accent/10 rounded-full blur-[80px]"
                     animate={{
                         scale: [1, 1.5, 1],
@@ -69,18 +70,16 @@ export const Hero = () => {
 
             {/* Floating geometric shapes */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(15)].map((_, i) => (
+                {mounted && [...Array(15)].map((_, i) => (
                     <motion.div
                         key={`shape-${i}`}
-                        className={`absolute ${
-                            i % 3 === 0 ? 'w-4 h-4 rounded-full' :
+                        className={`absolute ${i % 3 === 0 ? 'w-4 h-4 rounded-full' :
                             i % 3 === 1 ? 'w-3 h-3 rotate-45' :
-                            'w-2 h-2 rounded-sm'
-                        } ${
-                            i % 2 === 0 ? 'bg-primary/20' : 'bg-secondary/20'
-                        } backdrop-blur-sm`}
-                        initial={{ 
-                            x: Math.random() * window.innerWidth, 
+                                'w-2 h-2 rounded-sm'
+                            } ${i % 2 === 0 ? 'bg-primary/20' : 'bg-secondary/20'
+                            } backdrop-blur-sm`}
+                        initial={{
+                            x: Math.random() * window.innerWidth,
                             y: Math.random() * window.innerHeight,
                             scale: Math.random() * 2 + 0.5,
                             rotate: Math.random() * 360
@@ -101,7 +100,7 @@ export const Hero = () => {
             </div>
 
             {/* Grid overlay */}
-            <div 
+            <div
                 className="absolute inset-0 opacity-[0.02] pointer-events-none"
                 style={{
                     backgroundImage: `
@@ -128,7 +127,7 @@ export const Hero = () => {
                     </motion.div>
                     <span>AI-Powered Digital Transformation</span>
                     <motion.div
-                        animate={{ 
+                        animate={{
                             scale: [1, 1.2, 1],
                             rotate: [0, 180, 360]
                         }}
@@ -161,7 +160,7 @@ export const Hero = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
                                 className="inline-block"
-                                whileHover={{ 
+                                whileHover={{
                                     scale: 1.05,
                                     textShadow: "0 0 20px rgba(99, 102, 241, 0.5)"
                                 }}
@@ -228,17 +227,16 @@ export const Hero = () => {
                         { label: "5-Day Avg Delivery", delay: 0.5 },
                         { label: "100% Code Quality", delay: 1 }
                     ].map((item, i) => (
-                        <motion.div 
+                        <motion.div
                             key={item.label}
                             className="flex items-center gap-2"
                             whileHover={{ scale: 1.1, color: "rgba(99, 102, 241, 1)" }}
                         >
-                            <motion.div 
-                                className={`w-2 h-2 rounded-full ${
-                                    i === 0 ? 'bg-primary' : 
-                                    i === 1 ? 'bg-secondary' : 
-                                    'bg-accent'
-                                }`}
+                            <motion.div
+                                className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-primary' :
+                                    i === 1 ? 'bg-secondary' :
+                                        'bg-accent'
+                                    }`}
                                 animate={{
                                     scale: [1, 1.5, 1],
                                     opacity: [0.5, 1, 0.5]
