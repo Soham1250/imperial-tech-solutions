@@ -20,7 +20,7 @@ export const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             // Show navbar as the landing page parallax completes
-            const threshold = window.innerHeight * 1.8;
+            const threshold = window.innerHeight * 3.8;
             setIsScrolled(window.scrollY > threshold);
         };
         window.addEventListener("scroll", handleScroll);
@@ -49,8 +49,8 @@ export const Navbar = () => {
                             <Rocket className="text-primary w-7 h-7" />
                         </motion.div>
                     </motion.div>
-                    <span className="text-2xl font-bold tracking-tight text-foreground">
-                        Imperial<span className="text-secondary font-hand">Tech</span>
+                    <span className="text-3xl font-bold tracking-tight text-foreground font-cursive">
+                        Imperial<span className="text-secondary font-hand ml-1">Tech</span>
                     </span>
                 </Link>
 

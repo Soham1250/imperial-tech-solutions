@@ -74,7 +74,7 @@ export const Contact = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4 font-sans text-foreground">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Let&apos;s Start a New Tale
                     </h2>
                     <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
@@ -126,7 +126,7 @@ export const Contact = () => {
 
                         <div className="p-8 rounded-3xl bg-secondary/10 border-2 border-secondary/20 shadow-md font-hand">
                             <p className="text-lg text-foreground italic">
-                                <strong className="text-secondary-foreground not-italic font-sans">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
+                                <strong className="text-secondary-foreground not-italic">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
                             </p>
                         </div>
                     </motion.div>

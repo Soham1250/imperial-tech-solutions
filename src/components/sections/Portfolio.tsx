@@ -120,7 +120,7 @@ export const Portfolio = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4 font-sans text-foreground">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Our Gallery of Wonders
                     </h2>
                     <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">

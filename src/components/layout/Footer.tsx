@@ -62,12 +62,12 @@ export const Footer = () => {
                     <div className="flex flex-col gap-4 text-sm text-foreground/60">
                         <div className="flex items-start gap-3">
                             <Mail className="w-5 h-5 text-primary shrink-0" />
-                            <span>hello@imperialtech.com</span>
+                            <span>hello@imperialtech@gmail.com</span>
                         </div>
 
                         <div className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-primary shrink-0" />
-                            <span>Tech Hub, Bengaluru, India</span>
+                            <span>Mumbai, Maharashtra, India</span>
                         </div>
                     </div>
                 </div>
