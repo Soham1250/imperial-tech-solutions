@@ -92,7 +92,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
 
 export const FAQ = () => {
     return (
-        <section id="faq" className="py-24 px-6 bg-gradient-to-b from-[#fdfaf3] to-[#e8f5e9]">
+        <section id="faq" className="py-24 px-6 bg-gradient-to-b from-background to-background-secondary">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -103,12 +103,12 @@ export const FAQ = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Questions & Wonders
                     </h2>
-                    <p className="text-foreground/60 text-xl">
+                    <p className="text-foreground/60 text-xl font-hand">
                         Everything you might want to know about our magical process.
                     </p>
                 </motion.div>
 
-                <div className="p-8 md:p-12 bg-white rounded-[40px] border-2 border-primary/20 shadow-xl">
+                <div className="p-8 md:p-12 bg-white dark:bg-card/60 backdrop-blur-md rounded-[40px] border-2 border-primary/20 dark:border-white/5 shadow-xl dark:shadow-none">
                     {faqs.map((faq, index) => (
                         <FAQItem key={index} faq={faq} index={index} />
                     ))}
@@ -118,10 +118,10 @@ export const FAQ = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-12 text-center p-10 rounded-[40px] bg-white border-2 border-secondary/20 shadow-sm"
+                    className="mt-12 text-center p-10 rounded-[40px] bg-white dark:bg-card/60 backdrop-blur-md border-2 border-secondary/20 dark:border-white/5 shadow-sm dark:shadow-none"
                 >
                     <h3 className="text-2xl font-bold mb-2">Still have questions?</h3>
-                    <p className="text-foreground/60 text-lg mb-6">
+                    <p className="text-foreground/60 text-lg mb-6 font-hand">
                         Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help you out.
                     </p>
                     <a

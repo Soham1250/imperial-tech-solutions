@@ -2,8 +2,10 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export const ScrollIntro = () => {
+    const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
         setMounted(true);
@@ -25,7 +27,7 @@ export const ScrollIntro = () => {
     const skyColor = useTransform(
         smoothProgress,
         [0, 0.7, 1],
-        ["#0a192f", "#8fc8e5", "#fdfaf3"]
+        ["#0a192f", "#8fc8e5", theme === "dark" ? "#1a1c1e" : "#fdfaf3"]
     );
 
     // Heading animations - Start clear, then blur and scale away
@@ -39,7 +41,7 @@ export const ScrollIntro = () => {
     const hintY = useTransform(smoothProgress, [0, 0.1], [0, 20]);
 
     return (
-        <div ref={containerRef} className="relative h-[250vh] bg-[#fdfaf3]">
+        <div ref={containerRef} className="relative h-[250vh] bg-background">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 {/* Background Sky */}
                 <motion.div

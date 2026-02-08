@@ -32,7 +32,7 @@ export const Navbar = () => {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 py-4",
                 isScrolled
-                    ? "bg-white/60 backdrop-blur-md border-b border-primary/10 py-3 shadow-sm opacity-100 translate-y-0"
+                    ? "bg-white/60 dark:bg-card/60 backdrop-blur-md border-b border-primary/10 dark:border-white/5 py-3 shadow-sm opacity-100 translate-y-0"
                     : "bg-transparent opacity-0 -translate-y-10 pointer-events-none"
             )}
         >
@@ -74,17 +74,19 @@ export const Navbar = () => {
                             </Link>
                         </motion.div>
                     ))}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.4, type: "spring" }}
-                        whileHover={{ scale: 1.05, rotate: 2 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <Link href="#contact" className="button-primary text-sm px-8 py-3 !text-foreground">
-                            Connect
-                        </Link>
-                    </motion.div>
+                    <div className="flex items-center gap-4">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.4, type: "spring" }}
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="#contact" className="button-primary text-sm px-8 py-3 !text-foreground">
+                                Connect
+                            </Link>
+                        </motion.div>
+                    </div>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -117,7 +119,7 @@ export const Navbar = () => {
                         ))}
                         <Link
                             href="#contact"
-                            className="button-primary text-center"
+                            className="button-primary text-center mt-2"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Get Started

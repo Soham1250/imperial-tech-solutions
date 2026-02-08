@@ -66,7 +66,7 @@ export const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-24 px-6 bg-[#fdfaf3] border-t-2 border-primary/10">
+        <section id="contact" className="py-24 px-6 bg-background border-t-2 border-primary/10">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export const Contact = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Let&apos;s Start a New Tale
                     </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto">
+                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
                         Ready to bring some magic to your business? Reach out and let&apos;s talk.
                     </p>
                 </motion.div>
@@ -92,7 +92,7 @@ export const Contact = () => {
                     >
                         <div>
                             <h3 className="text-3xl font-bold mb-6 text-secondary-foreground">Our Studio Address</h3>
-                            <p className="text-foreground/70 leading-relaxed text-lg">
+                            <p className="text-foreground/70 leading-relaxed text-lg font-hand">
                                 we&apos;re here to help you bring your ideas to life.
                                 Send us a message and we&apos;ll get back to you with the same care we put into our code.
                             </p>
@@ -125,8 +125,8 @@ export const Contact = () => {
                         </div>
 
                         <div className="p-8 rounded-3xl bg-secondary/10 border-2 border-secondary/20 shadow-md">
-                            <p className="text-lg text-foreground italic">
-                                <strong className="text-secondary-foreground not-italic">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
+                            <p className="text-lg text-foreground italic font-hand">
+                                <strong className="text-secondary-foreground not-italic font-bold">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
                             </p>
                         </div>
                     </motion.div>
@@ -136,7 +136,7 @@ export const Contact = () => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="p-8 md:p-12 bg-white rounded-[40px] border-2 border-primary/20 shadow-xl"
+                        className="p-8 md:p-12 bg-white dark:bg-card/60 backdrop-blur-md rounded-[40px] border-2 border-primary/20 dark:border-white/5 shadow-xl dark:shadow-none"
                     >
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,8 +150,8 @@ export const Contact = () => {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className={`w-full px-5 py-4 rounded-2xl bg-white border-2 ${errors.name ? "border-accent/50" : "border-primary/20"
-                                            } focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40`}
+                                        className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.name ? "border-accent/50" : "border-primary/20"
+                                            } focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40 text-foreground`}
                                         placeholder="How shall we call you?"
                                     />
                                     {errors.name && (
@@ -169,8 +169,8 @@ export const Contact = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className={`w-full px-5 py-4 rounded-2xl bg-white border-2 ${errors.email ? "border-accent/50" : "border-primary/10"
-                                            } focus:border-primary focus:outline-none transition-all shadow-sm`}
+                                        className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.email ? "border-accent/50" : "border-primary/10"
+                                            } focus:border-primary focus:outline-none transition-all shadow-sm text-foreground`}
                                         placeholder="Where should we send our bird?"
                                     />
                                     {errors.email && (
@@ -189,7 +189,7 @@ export const Contact = () => {
                                     name="company"
                                     value={formData.company}
                                     onChange={handleChange}
-                                    className="w-full px-5 py-4 rounded-2xl bg-white border-2 border-primary/20 focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40"
+                                    className="w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 border-primary/20 focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40 text-foreground"
                                     placeholder="Tell us about your realm"
                                 />
                             </div>
@@ -204,8 +204,8 @@ export const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={5}
-                                    className={`w-full px-5 py-4 rounded-2xl bg-white border-2 ${errors.message ? "border-accent/50" : "border-primary/20"
-                                        } focus:border-primary focus:outline-none transition-all shadow-md resize-none placeholder:text-foreground/40`}
+                                    className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.message ? "border-accent/50" : "border-primary/20"
+                                        } focus:border-primary focus:outline-none transition-all shadow-md resize-none placeholder:text-foreground/40 text-foreground`}
                                     placeholder="Write your story here..."
                                 />
                                 {errors.message && (
@@ -216,7 +216,7 @@ export const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitted}
-                                className="w-full button-primary flex items-center justify-center gap-3 py-5 text-xl disabled:opacity-50 disabled:cursor-not-allowed group"
+                                className="w-full button-primary !text-foreground flex items-center justify-center gap-3 py-5 text-xl disabled:opacity-50 disabled:cursor-not-allowed group transition-all"
                             >
                                 {isSubmitted ? (
                                     <>

@@ -106,7 +106,7 @@ export const Portfolio = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <section id="portfolio" className="py-24 px-6 bg-gradient-to-b from-[#e8f5e9] to-[#fdfaf3] relative overflow-hidden">
+        <section id="portfolio" className="py-24 px-6 bg-gradient-to-b from-background-secondary to-background relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
@@ -123,7 +123,7 @@ export const Portfolio = () => {
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
                         Our Gallery of Wonders
                     </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto">
+                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
                         A curation of our most magical work, built with love and attention to every detail.
                     </p>
                 </motion.div>
@@ -163,7 +163,7 @@ export const Portfolio = () => {
                                     perspective: 1000,
                                 }}
                                 whileHover={{ scale: 1.02, z: 50 }}
-                                className="group relative rounded-2xl overflow-hidden bg-white border-2 border-primary/10 hover:border-primary/40 transition-all cursor-default shadow-sm hover:shadow-md"
+                                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-card/60 backdrop-blur-md border-2 border-primary/10 hover:border-primary/40 dark:border-white/5 dark:hover:border-primary/30 transition-all cursor-default shadow-sm hover:shadow-md dark:shadow-none"
                             >
                                 {/* Gradient header */}
                                 <div className="relative h-32 overflow-hidden">

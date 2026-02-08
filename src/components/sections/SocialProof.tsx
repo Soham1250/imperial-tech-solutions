@@ -75,7 +75,7 @@ const StatCard = ({ value, label, suffix }: { value: number; label: string; suff
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -5 }}
-            className="text-center p-6 rounded-2xl bg-white border-2 border-primary/10 hover:border-primary/40 transition-all shadow-sm hover:shadow-md"
+            className="text-center p-6 rounded-2xl bg-white dark:bg-card/60 backdrop-blur-md border-2 border-primary/10 hover:border-primary/40 dark:border-white/5 dark:hover:border-primary/30 transition-all shadow-sm hover:shadow-md dark:shadow-none"
         >
             <div className="text-5xl md:text-6xl font-bold text-gradient mb-2">
                 {count}{suffix}
@@ -98,7 +98,7 @@ export const SocialProof = () => {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Stats Section */}
-                <div className="mb-24">
+                <div className="md:mb-24 mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export const SocialProof = () => {
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
                             Built on Excellence
                         </h2>
-                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
+                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto font-hand">
                             Fresh perspective, modern technology, and unwavering commitment to quality
                         </p>
                     </motion.div>
@@ -131,7 +131,7 @@ export const SocialProof = () => {
                         <h3 className="text-3xl md:text-4xl font-bold mb-4">
                             Our Tech Arsenal
                         </h3>
-                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
+                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto font-hand">
                             Cutting-edge technologies to build your perfect solution
                         </p>
                     </motion.div>
@@ -145,7 +145,7 @@ export const SocialProof = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -10, scale: 1.02 }}
-                                className="relative p-8 rounded-2xl bg-white border-2 border-primary/10 hover:border-primary/40 transition-all group overflow-hidden shadow-sm hover:shadow-md"
+                                className="relative p-8 rounded-2xl bg-white dark:bg-card/60 backdrop-blur-md border-2 border-primary/10 hover:border-primary/40 dark:border-white/5 dark:hover:border-primary/30 transition-all group overflow-hidden shadow-sm hover:shadow-md dark:shadow-none"
                             >
                                 {/* Gradient overlay */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -188,7 +188,7 @@ export const SocialProof = () => {
                                                     backgroundColor: `${stack.color}30`,
                                                     color: stack.color
                                                 }}
-                                                className="px-3 py-1.5 bg-primary/5 text-xs text-foreground font-bold rounded-full border border-primary/20 transition-all cursor-default"
+                                                className="px-3 py-1.5 bg-primary/5 dark:bg-primary/10 text-xs text-foreground font-bold rounded-full border border-primary/20 transition-all cursor-default"
                                             >
                                                 {tech}
                                             </motion.span>
@@ -198,7 +198,7 @@ export const SocialProof = () => {
 
                                 {/* Corner decoration */}
                                 <motion.div
-                                    className="absolute top-0 right-0 w-20 h-20 rounded-bl-full opacity-20"
+                                    className="absolute top-0 right-0 w-20 h-20 rounded-bl-full opacity-20 dark:opacity-10"
                                     style={{ backgroundColor: stack.color }}
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
@@ -213,14 +213,14 @@ export const SocialProof = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mt-16 text-center p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 border border-white/10"
+                        className="mt-16 text-center p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 dark:from-primary/5 dark:via-secondary/5 dark:to-accent/5 border border-white/10"
                     >
                         <div className="flex items-center justify-center gap-3 mb-4">
                             <Sparkles className="w-6 h-6 text-primary" />
                             <h4 className="text-2xl font-bold">Ready to Build Something Amazing?</h4>
                             <Rocket className="w-6 h-6 text-accent" />
                         </div>
-                        <p className="text-foreground/60 mb-6 max-w-2xl mx-auto">
+                        <p className="text-foreground/60 mb-6 max-w-2xl mx-auto font-hand">
                             As a new agency, we bring fresh ideas, modern approaches, and 100% dedication to your success. No legacy methods, just cutting-edge solutions.
                         </p>
                         <motion.a

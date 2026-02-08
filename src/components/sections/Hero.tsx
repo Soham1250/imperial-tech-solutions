@@ -28,17 +28,17 @@ export const Hero = () => {
         <PageLayout>
             <section
                 id="home"
-                className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 overflow-hidden bg-[#fdfaf3]"
+                className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 overflow-hidden bg-background"
             >
                 {/* Ghibli Clouds and Hills BACKGROUND */}
                 <div className="absolute inset-0 pointer-events-none opacity-40">
                     <motion.div
-                        className="absolute top-[20%] left-[-10%] w-[30rem] h-[15rem] bg-white rounded-full blur-[80px]"
+                        className="absolute top-[20%] left-[-10%] w-[30rem] h-[15rem] bg-white dark:bg-primary/5 rounded-full blur-[80px]"
                         animate={{ x: [0, 50, 0] }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     />
                     <motion.div
-                        className="absolute top-[40%] right-[-10%] w-[40rem] h-[20rem] bg-white rounded-full blur-[100px]"
+                        className="absolute top-[40%] right-[-10%] w-[40rem] h-[20rem] bg-white dark:bg-secondary/5 rounded-full blur-[100px]"
                         animate={{ x: [0, -70, 0] }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                     />

@@ -20,7 +20,37 @@
 @layer base {
   :root {
     --background: #fdfaf3;
+    --background-secondary: #e8f5e9;
     --foreground: #2d3436;
+    --primary: #8fc8e5;
+    --secondary: #a8d672;
+    --accent: #f28b82;
+    --card: #ffffff;
+    --card-foreground: #636e72;
+    --border: #e2e8f0;
+  }
+
+  .dark {
+    --background: #0c1214;
+    /* Deep Forest Black/Teal */
+    --background-secondary: #111a1d;
+    /* Slightly lighter depth */
+    --foreground: #e6e1d3;
+    /* Starlight Parchment - Easy on eyes */
+
+    /* Ghibli Night Palette */
+    --primary: #8ab7cf;
+    /* Moonlit River */
+    --secondary: #9cb071;
+    /* Night Moss */
+    --accent: #e08e79;
+    /* Firefly Glow */
+
+    --card: rgba(17, 26, 29, 0.7);
+    /* Camouflage Glass */
+    --card-foreground: #d4d4ce;
+    --border: rgba(138, 183, 207, 0.2);
+    /* Moonlit Border */
   }
 
   html {
@@ -30,25 +60,28 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    transition: background-color 0.5s ease, color 0.5s ease;
     @apply font-hand;
   }
 
   h1,
   h2,
   h3 {
-    @apply text-foreground font-cursive font-bold leading-tight;
+    color: var(--foreground);
+    @apply font-cursive font-bold leading-tight;
   }
 
   h4,
   h5,
   h6 {
-    @apply text-foreground font-bold;
+    color: var(--foreground);
+    @apply font-bold;
   }
 
   p,
   span,
   div {
-    @apply text-foreground/85;
+    @apply text-foreground/85 transition-colors duration-500;
   }
 }
 

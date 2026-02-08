@@ -59,7 +59,7 @@ const services = [
 
 export const Services = () => {
     return (
-        <section id="services" className="py-24 px-6 bg-gradient-to-b from-[#fdfaf3] to-[#e8f5e9]">
+        <section id="services" className="py-24 px-6 bg-gradient-to-b from-background to-background/80">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -108,9 +108,9 @@ export const Services = () => {
                                 </motion.div>
                             )}
                             <div className={
-                                `h-full p-8 rounded-[40px] transition-all duration-300 relative overflow-hidden bg-white shadow-md border-2 ${service.popular
+                                `h-full p-8 rounded-[40px] transition-all duration-300 relative overflow-hidden bg-white dark:bg-card/60 backdrop-blur-md shadow-md dark:shadow-none border-2 ${service.popular
                                     ? "border-accent/60 bg-accent/[0.03] ring-4 ring-accent/10"
-                                    : "border-primary/30 hover:border-primary/60"
+                                    : "border-primary/30 hover:border-primary/60 dark:border-white/5 dark:hover:border-primary/30"
                                 }`
                             }>
                                 {/* Hand-drawn border effect */}
