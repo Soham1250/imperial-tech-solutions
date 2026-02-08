@@ -1,0 +1,192 @@
+
+> imperial-tech-solutions@0.1.0 lint
+> eslint
+
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\layout\Footer.tsx
+  3:24  warning  'Phone' is defined but never used     @typescript-eslint/no-unused-vars
+  3:69  warning  'Facebook' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\layout\PageLayout.tsx
+  13:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\layout\PageLayout.tsx:13:9
+  11 |     const [mounted, setMounted] = useState(false);
+  12 |     useEffect(() => {
+> 13 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  14 |     }, []);
+  15 |
+  16 |     const containerRef = useRef<HTMLDivElement>(null);  react-hooks/set-state-in-effect
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Contact.tsx
+  5:16  warning  'Phone' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx
+  57:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:57:36
+  55 |                                 }`}
+  56 |                             initial={{
+> 57 |                                 x: Math.random() * 100 + "%",
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  58 |                                 y: -20,
+  59 |                                 rotate: Math.random() * 360
+  60 |                             }}                                                                                          react-hooks/purity
+  59:41  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:59:41
+  57 |                                 x: Math.random() * 100 + "%",
+  58 |                                 y: -20,
+> 59 |                                 rotate: Math.random() * 360
+     |                                         ^^^^^^^^^^^^^ Cannot call impure function
+  60 |                             }}
+  61 |                             animate={{
+  62 |                                 y: ["0vh", "110vh"],                                                                    react-hooks/purity
+  63:44  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:63:44
+  61 |                             animate={{
+  62 |                                 y: ["0vh", "110vh"],
+> 63 |                                 x: [null, (Math.random() - 0.5) * 50 + "%"],
+     |                                            ^^^^^^^^^^^^^ Cannot call impure function
+  64 |                                 rotate: [null, Math.random() * 360 + 720]
+  65 |                             }}
+  66 |                             transition={{                                  react-hooks/purity
+  64:48  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:64:48
+  62 |                                 y: ["0vh", "110vh"],
+  63 |                                 x: [null, (Math.random() - 0.5) * 50 + "%"],
+> 64 |                                 rotate: [null, Math.random() * 360 + 720]
+     |                                                ^^^^^^^^^^^^^ Cannot call impure function
+  65 |                             }}
+  66 |                             transition={{
+  67 |                                 duration: Math.random() * 10 + 10,  react-hooks/purity
+  67:43  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:67:43
+  65 |                             }}
+  66 |                             transition={{
+> 67 |                                 duration: Math.random() * 10 + 10,
+     |                                           ^^^^^^^^^^^^^ Cannot call impure function
+  68 |                                 repeat: Infinity,
+  69 |                                 ease: "linear",
+  70 |                                 delay: Math.random() * 10                                                       react-hooks/purity
+  70:40  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Hero.tsx:70:40
+  68 |                                 repeat: Infinity,
+  69 |                                 ease: "linear",
+> 70 |                                 delay: Math.random() * 10
+     |                                        ^^^^^^^^^^^^^ Cannot call impure function
+  71 |                             }}
+  72 |                         />
+  73 |                     ))}                                                                                                                    react-hooks/purity
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\MethodologyGrid.tsx
+  166:80  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Portfolio.tsx
+  133:40  error  React Hook "useMotionValue" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+  134:40  error  React Hook "useMotionValue" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+  136:41  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function    react-hooks/rules-of-hooks
+  137:41  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function    react-hooks/rules-of-hooks
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\ScrollIntro.tsx
+   8:13  warning  'theme' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  11:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\ScrollIntro.tsx:11:9
+   9 |     const [mounted, setMounted] = useState(false);
+  10 |     useEffect(() => {
+> 11 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  12 |     }, []);
+  13 |
+  14 |     const containerRef = useRef<HTMLDivElement>(null);  react-hooks/set-state-in-effect
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\Services.tsx
+  11:5  warning  'Globe' is defined but never used  @typescript-eslint/no-unused-vars
+  12:5  warning  'Check' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\SocialProof.tsx
+  15:5   warning  'Globe' is defined but never used                 @typescript-eslint/no-unused-vars
+  89:12  warning  'hoveredTech' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\sections\WhyUs.tsx
+  11:5  warning  'Users' is defined but never used       @typescript-eslint/no-unused-vars
+  12:5  warning  'TrendingUp' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\FloatingThemeToggle.tsx
+  14:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\FloatingThemeToggle.tsx:14:9
+  12 |
+  13 |     useEffect(() => {
+> 14 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  15 |         const handleScroll = () => {
+  16 |             setScrolled(window.scrollY > 300);
+  17 |         };  react-hooks/set-state-in-effect
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\Parallax.tsx
+  3:10  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\ScrollProgress.tsx
+  3:10  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  3:21  warning  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\ThemeToggle.tsx
+  13:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\components\ui\ThemeToggle.tsx:13:9
+  11 |
+  12 |     useEffect(() => {
+> 13 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  14 |     }, []);
+  15 |
+  16 |     if (!mounted) return <div className="w-10 h-10" />;  react-hooks/set-state-in-effect
+
+C:\Users\soham\Desktop\GRIND\Agency\Website\imperial-tech-solutions\src\hooks\useInView.ts
+  24:40  warning  The ref value 'ref.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'ref.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+✖ 29 problems (15 errors, 14 warnings)
+

@@ -24,6 +24,20 @@ export const Hero = () => {
     const rotateX = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [5, -5]);
     const rotateY = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1200], [-5, 5]);
 
+    // Generate stable random values for particles to avoid purity errors
+    const particles = React.useMemo(() => {
+        return [...Array(20)].map((_, i) => ({
+            id: i,
+            x: Math.random() * 100 + "%",
+            rotateInitial: Math.random() * 360,
+            xAnimate: (Math.random() - 0.5) * 50 + "%",
+            rotateAnimate: Math.random() * 360 + 720,
+            duration: Math.random() * 10 + 10,
+            delay: Math.random() * 10,
+            type: i % 2 === 0 ? 'petal-a' : 'petal-b'
+        }));
+    }, []);
+
     return (
         <PageLayout>
             <section
@@ -47,27 +61,27 @@ export const Hero = () => {
 
                 {/* Floating Petals/Leaves */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {mounted && [...Array(20)].map((_, i) => (
+                    {mounted && particles.map((p) => (
                         <motion.div
-                            key={`petal-${i}`}
-                            className={`absolute ${i % 2 === 0 ? 'w-4 h-6 rounded-tr-full rounded-bl-full bg-accent/30' :
+                            key={`petal-${p.id}`}
+                            className={`absolute ${p.type === 'petal-a' ? 'w-4 h-6 rounded-tr-full rounded-bl-full bg-accent/30' :
                                 'w-3 h-5 rounded-tl-full rounded-br-full bg-secondary/30'
                                 }`}
                             initial={{
-                                x: Math.random() * 100 + "%",
+                                x: p.x,
                                 y: -20,
-                                rotate: Math.random() * 360
+                                rotate: p.rotateInitial
                             }}
                             animate={{
                                 y: ["0vh", "110vh"],
-                                x: [null, (Math.random() - 0.5) * 50 + "%"],
-                                rotate: [null, Math.random() * 360 + 720]
+                                x: [null, p.xAnimate],
+                                rotate: [null, p.rotateAnimate]
                             }}
                             transition={{
-                                duration: Math.random() * 10 + 10,
+                                duration: p.duration,
                                 repeat: Infinity,
                                 ease: "linear",
-                                delay: Math.random() * 10
+                                delay: p.delay
                             }}
                         />
                     ))}

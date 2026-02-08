@@ -23,11 +23,17 @@ export const ScrollIntro = () => {
         restDelta: 0.001
     });
 
-    // Background Sky Color Blend - Clean transition from brand color to site background
+    // Background Sky Color Blend - Smooth gradual transition
     const skyColor = useTransform(
         smoothProgress,
-        [0, 0.7, 1],
-        ["#0a192f", "#8fc8e5", theme === "dark" ? "#1a1c1e" : "#fdfaf3"]
+        [0, 0.5, 0.7, 0.85, 1],
+        [
+            "#8fc8e5",      // Standard Sky Blue Start
+            "#b3daef",      // Softened Light Blue
+            "#d5e8f4",      // Pale Blue
+            "#eef5f9",      // Near White Blue
+            "#fdfaf3"       // Final paper white background
+        ]
     );
 
     // Heading animations - Start clear, then blur and scale away

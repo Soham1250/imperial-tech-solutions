@@ -163,7 +163,7 @@ export const MethodologyGrid = () => {
                                 transition={{ duration: 10, repeat: Infinity }}
                             />
                             <h3 className="text-2xl font-bold text-white mb-2 relative z-10">Start Your Story?</h3>
-                            <p className="text-white/80 mb-6 relative z-10">Let's build something magical together.</p>
+                            <p className="text-white/80 mb-6 relative z-10">Let&apos;s build something magical together.</p>
                             <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary group-hover:scale-125 transition-transform relative z-10">
                                 <ArrowRight className="w-6 h-6" />
                             </div>
