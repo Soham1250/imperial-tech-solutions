@@ -1,337 +1,90 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import {
-    Code,
-    Smartphone,
-    Brain,
-    Rocket,
-    Shield,
-    Zap,
-    TrendingUp,
-    Globe,
-    Database,
-    Sparkles
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import BlurFade from "@/components/magicui/BlurFade";
+import { Button } from "@/components/ui/button";
 
-interface Capability {
-    title: string;
-    category: string;
-    description: string;
-    icon: any;
-    color: string;
-    features: string[];
-    gradient: string;
-}
-
-const capabilities: Capability[] = [
+const projects = [
     {
-        title: "Custom Web Applications",
-        category: "Web Development",
-        description: "Full-stack web applications built with modern frameworks. From landing pages to complex SaaS platforms.",
-        icon: Code,
-        color: "#6366f1",
-        features: [
-            "React & Next.js expertise",
-            "Responsive design",
-            "SEO optimized",
-            "Lightning fast"
-        ],
-        gradient: "from-blue-500 to-indigo-600"
+        title: "FinTech Dashboard",
+        category: "Web Application",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+        description: "Real-time financial analytics platform with AI-driven insights.",
+        href: "#",
     },
     {
-        title: "AI-Powered Solutions",
-        category: "Artificial Intelligence",
-        description: "Intelligent automation systems, chatbots, and AI integrations that work 24/7 for your business.",
-        icon: Brain,
-        color: "#f43f5e",
-        features: [
-            "Custom AI agents",
-            "Natural language processing",
-            "Automated workflows",
-            "Smart recommendations"
-        ],
-        gradient: "from-rose-500 to-pink-600"
+        title: "E-Commerce Rebrand",
+        category: "Brand & Development",
+        image: "https://images.unsplash.com/photo-1523726491678-bf852e717f63?q=80&w=2070&auto=format&fit=crop",
+        description: "Complete digital transformation for a luxury fashion retailer.",
+        href: "#",
     },
     {
-        title: "Mobile App Development",
-        category: "Mobile",
-        description: "Native and cross-platform mobile applications for iOS and Android with seamless user experiences.",
-        icon: Smartphone,
-        color: "#0ea5e9",
-        features: [
-            "React Native",
-            "Cross-platform",
-            "App store ready",
-            "Push notifications"
-        ],
-        gradient: "from-cyan-500 to-blue-600"
+        title: "HealthTech Mobile App",
+        category: "Mobile Development",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+        description: "Telemedicine application connecting patients with specialists worldwide.",
+        href: "#",
     },
-    {
-        title: "Cloud Infrastructure",
-        category: "DevOps & Cloud",
-        description: "Scalable cloud solutions with automated deployment, monitoring, and enterprise-grade security.",
-        icon: Globe,
-        color: "#8b5cf6",
-        features: [
-            "AWS/Azure/GCP",
-            "Auto-scaling",
-            "CI/CD pipelines",
-            "24/7 monitoring"
-        ],
-        gradient: "from-purple-500 to-violet-600"
-    },
-    {
-        title: "Database Architecture",
-        category: "Backend",
-        description: "Robust database design and optimization for high-performance data management and analytics.",
-        icon: Database,
-        color: "#10b981",
-        features: [
-            "SQL & NoSQL",
-            "Performance tuning",
-            "Data modeling",
-            "Backup strategies"
-        ],
-        gradient: "from-emerald-500 to-green-600"
-    },
-    {
-        title: "Security & Compliance",
-        category: "Cybersecurity",
-        description: "Enterprise-level security implementations, compliance audits, and penetration testing.",
-        icon: Shield,
-        color: "#f59e0b",
-        features: [
-            "Security audits",
-            "Encryption",
-            "Compliance (GDPR, etc)",
-            "Penetration testing"
-        ],
-        gradient: "from-amber-500 to-orange-600"
-    }
 ];
 
-const PortfolioCard = ({ capability, index, hoveredIndex, setHoveredIndex }: {
-    capability: Capability;
-    index: number;
-    hoveredIndex: number | null;
-    setHoveredIndex: (idx: number | null) => void;
-}) => {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], [5, -5]);
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], [-5, 5]);
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                mouseX.set((e.clientX - centerX) / rect.width);
-                mouseY.set((e.clientY - centerY) / rect.height);
-            }}
-            onMouseLeave={() => {
-                mouseX.set(0);
-                mouseY.set(0);
-            }}
-            onHoverStart={() => setHoveredIndex(index)}
-            onHoverEnd={() => setHoveredIndex(null)}
-            style={{
-                rotateX: hoveredIndex === index ? rotateX : 0,
-                rotateY: hoveredIndex === index ? rotateY : 0,
-                transformStyle: "preserve-3d",
-                perspective: 1000,
-            }}
-            whileHover={{ scale: 1.02, z: 50 }}
-            className="group relative rounded-2xl overflow-hidden bg-white dark:bg-card/60 backdrop-blur-md border-2 border-primary/10 hover:border-primary/40 dark:border-white/5 dark:hover:border-primary/30 transition-all cursor-default shadow-sm hover:shadow-md dark:shadow-none"
-        >
-            {/* Gradient header */}
-            <div className="relative h-32 overflow-hidden">
-                <div
-                    className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-20`}
-                />
-                <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-background"
-                    initial={{ opacity: 0.7 }}
-                    whileHover={{ opacity: 0.9 }}
-                />
-
-                {/* Icon */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <motion.div
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-sm"
-                        style={{
-                            backgroundColor: `${capability.color}20`,
-                            border: `2px solid ${capability.color}40`
-                        }}
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <capability.icon
-                            className="w-8 h-8"
-                            style={{ color: capability.color }}
-                        />
-                    </motion.div>
-                </div>
-
-                <motion.div
-                    className="absolute top-4 right-4"
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                >
-                    <span
-                        className="px-3 py-1 backdrop-blur-sm text-white text-xs font-semibold rounded-full"
-                        style={{ backgroundColor: `${capability.color}80` }}
-                    >
-                        {capability.category}
-                    </span>
-                </motion.div>
-            </div>
-
-            {/* Content */}
-            <div className="p-6 relative" style={{ transform: "translateZ(20px)" }}>
-                <motion.h3
-                    className="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
-                    whileHover={{ x: 5 }}
-                >
-                    {capability.title}
-                </motion.h3>
-                <p className="text-foreground font-medium text-sm leading-relaxed mb-4 opacity-80">
-                    {capability.description}
-                </p>
-
-                {/* Features */}
-                <div className="space-y-2 mb-4">
-                    {capability.features.map((feature, fIndex) => (
-                        <motion.div
-                            key={feature}
-                            className="flex items-center gap-2 text-sm"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 + fIndex * 0.1 }}
-                        >
-                            <div
-                                className="w-2.5 h-2.5 rounded-full shadow-sm"
-                                style={{ backgroundColor: capability.color }}
-                            />
-                            <span className="text-foreground font-semibold">{feature}</span>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* CTA */}
-                <motion.div
-                    className="pt-4 border-t border-white/10"
-                    whileHover={{ scale: 1.02 }}
-                >
-                    <a
-                        href="#contact"
-                        className="flex items-center gap-2 text-sm font-medium group/btn"
-                        style={{ color: capability.color }}
-                    >
-                        <span>Learn More</span>
-                        <motion.div
-                            animate={{ x: hoveredIndex === index ? [0, 5, 0] : 0 }}
-                            transition={{ duration: 1, repeat: hoveredIndex === index ? Infinity : 0 }}
-                        >
-                            <TrendingUp className="w-4 h-4" />
-                        </motion.div>
-                    </a>
-                </motion.div>
-            </div>
-        </motion.div>
-    );
-};
-
 export const Portfolio = () => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
     return (
-        <section id="portfolio" className="py-24 px-6 bg-gradient-to-b from-background-secondary to-background relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
-            </div>
+        <section id="portfolio" className="py-24 px-6 bg-background relative overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <BlurFade inView>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Selected Works</h2>
+                        <p className="mt-4 text-xl text-foreground/60 max-w-lg">
+                            Showcasing our best digital craftsmanship and strategic solutions.
+                        </p>
+                    </BlurFade>
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
-                        Our Gallery of Wonders
-                    </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
-                        A curation of our most magical work, built with love and attention to every detail.
-                    </p>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {capabilities.map((capability, i) => (
-                        <PortfolioCard
-                            key={capability.title}
-                            capability={capability}
-                            index={i}
-                            hoveredIndex={hoveredIndex}
-                            setHoveredIndex={setHoveredIndex}
-                        />
-                    ))}
+                    <BlurFade delay={0.2} inView>
+                        <Button variant="outline" className="rounded-full px-8 py-6 text-lg">
+                            View All Projects <ArrowUpRight className="ml-2 w-5 h-5" />
+                        </Button>
+                    </BlurFade>
                 </div>
 
-                {/* CTA Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-16 text-center p-10 rounded-2xl bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 border border-white/10 relative overflow-hidden"
-                >
-                    {/* Animated background */}
-                    <div className="absolute inset-0 opacity-30">
-                        <motion.div
-                            className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20"
-                            animate={{
-                                x: [-100, 100],
-                                opacity: [0.3, 0.6, 0.3]
-                            }}
-                            transition={{
-                                duration: 5,
-                                repeat: Infinity,
-                                ease: "linear"
-                            }}
-                        />
-                    </div>
-
-                    <div className="relative z-10">
-                        <div className="flex items-center justify-center gap-3 mb-4">
-                            <Rocket className="w-8 h-8 text-primary" />
-                            <h3 className="text-3xl font-bold">Your Project Awaits</h3>
-                            <Sparkles className="w-8 h-8 text-accent" />
-                        </div>
-                        <p className="text-foreground/60 text-lg mb-6 max-w-2xl mx-auto">
-                            Every great product starts with a conversation. Let&apos;s discuss how we can turn your ideas into reality.
-                        </p>
-                        <motion.a
-                            href="#contact"
-                            className="button-primary inline-flex items-center gap-2 text-lg px-8 py-4"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Start Your Project
-                            <Zap className="w-5 h-5" />
-                        </motion.a>
-                    </div>
-                </motion.div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, index) => (
+                        <BlurFade key={index} delay={0.2 + index * 0.1} inView>
+                            <Link href={project.href} className="group block space-y-4">
+                                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/50 bg-muted">
+                                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-20 transition-opacity z-10" />
+                                    {/* Placeholder image logic if next/image fails with external URL without config */}
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <h3 className="text-2xl font-semibold group-hover:text-primary transition-colors">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-sm font-medium text-foreground/50 uppercase tracking-wider">
+                                                {project.category}
+                                            </p>
+                                        </div>
+                                        <div className="p-2 rounded-full border border-border group-hover:bg-primary group-hover:text-white transition-all">
+                                            <ArrowUpRight className="w-5 h-5" />
+                                        </div>
+                                    </div>
+                                    <p className="text-foreground/70 line-clamp-2">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </Link>
+                        </BlurFade>
+                    ))}
+                </div>
             </div>
         </section>
     );

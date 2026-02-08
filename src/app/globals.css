@@ -15,7 +15,49 @@
   --font-sans: "Quicksand", var(--font-quicksand);
   --font-hand: "Handlee", var(--font-handlee);
   --font-cursive: "Dancing Script", var(--font-cursive);
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  --animate-slide: slide var(--speed) ease-in-out infinite alternate;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes spin-around {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes slide {
+    to {
+      transform: translate(calc(100% + var(--cut)), 0);
+    }
+  }
 }
+
 
 @layer base {
   :root {
@@ -61,7 +103,7 @@
     background-color: var(--background);
     color: var(--foreground);
     transition: background-color 0.5s ease, color 0.5s ease;
-    @apply font-hand;
+    @apply font-sans;
   }
 
   h1,

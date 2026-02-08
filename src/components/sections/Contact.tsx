@@ -1,238 +1,72 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import BlurFade from "@/components/magicui/BlurFade";
+import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        company: "",
-        message: ""
-    });
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [errors, setErrors] = useState<Record<string, string>>({});
-
-    const validateForm = () => {
-        const newErrors: Record<string, string> = {};
-
-        if (!formData.name.trim()) {
-            newErrors.name = "Name is required";
-        }
-
-        if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email";
-        }
-
-        if (!formData.message.trim()) {
-            newErrors.message = "Message is required";
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (validateForm()) {
-            // Here you would normally send the data to your backend
-            console.log("Form submitted:", formData);
-            setIsSubmitted(true);
-
-            // Reset form after 3 seconds
-            setTimeout(() => {
-                setIsSubmitted(false);
-                setFormData({ name: "", email: "", company: "", message: "" });
-            }, 3000);
-        }
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-        // Clear error when user starts typing
-        if (errors[e.target.name]) {
-            setErrors({
-                ...errors,
-                [e.target.name]: ""
-            });
-        }
-    };
-
     return (
-        <section id="contact" className="py-24 px-6 bg-background border-t-2 border-primary/10">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
-                        Let&apos;s Start a New Tale
-                    </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
-                        Ready to bring some magic to your business? Reach out and let&apos;s talk.
-                    </p>
-                </motion.div>
+        <section id="contact" className="py-24 px-6 bg-background">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="space-y-8">
+                    <BlurFade inView>
+                        <h2 className="text-4xl md:text-5xl font-bold">Let&apos;s Build <br /><span className="text-primary">Something Great</span></h2>
+                        <p className="text-xl text-foreground/60 leading-relaxed max-w-md">
+                            Ready to transform your digital presence? Reach out and let&apos;s discuss your vision.
+                        </p>
+                    </BlurFade>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    {/* Contact Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="space-y-10"
-                    >
-                        <div>
-                            <h3 className="text-3xl font-bold mb-6 text-secondary-foreground">Our Studio Address</h3>
-                            <p className="text-foreground/70 leading-relaxed text-lg font-hand">
-                                we&apos;re here to help you bring your ideas to life.
-                                Send us a message and we&apos;ll get back to you with the same care we put into our code.
-                            </p>
-                        </div>
-
-                        <div className="space-y-8">
-                            <div className="flex items-start gap-5">
-                                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border-2 border-primary/20">
-                                    <Mail className="w-6 h-6 text-primary" />
+                    <div className="space-y-6">
+                        <BlurFade delay={0.2} inView>
+                            <div className="flex items-center gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
+                                <div className="p-3 rounded-full bg-primary/10 text-primary">
+                                    <Mail className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold mb-1">Send a Letter</h4>
-                                    <a href="mailto:soham.pansare1250@gmail.com" className="text-foreground/60 hover:text-primary transition-colors text-lg">
-                                        soham.pansare1250@gmail.com
-                                    </a>
+                                    <h3 className="font-semibold">Email Us</h3>
+                                    <p className="text-foreground/60">hello@imperialtech.com</p>
                                 </div>
                             </div>
-
-                            <div className="flex items-start gap-5">
-                                <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center shrink-0 border-2 border-secondary/20">
-                                    <MapPin className="w-6 h-6 text-secondary" />
+                        </BlurFade>
+                        <BlurFade delay={0.3} inView>
+                            <div className="flex items-center gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
+                                <div className="p-3 rounded-full bg-primary/10 text-primary">
+                                    <Phone className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold mb-1">Find Our Cottage</h4>
-                                    <p className="text-foreground/60 text-lg">
-                                        Mumbai, India <br />
-                                    </p>
+                                    <h3 className="font-semibold">Call Us</h3>
+                                    <p className="text-foreground/60">+1 (555) 123-4567</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="p-8 rounded-3xl bg-secondary/10 border-2 border-secondary/20 shadow-md">
-                            <p className="text-lg text-foreground italic font-hand">
-                                <strong className="text-secondary-foreground not-italic font-bold">Swift Response:</strong> We typically respond to all inquiries within 24 hours during business days, faster if the birds are flying high.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Contact Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="p-8 md:p-12 bg-white dark:bg-card/60 backdrop-blur-md rounded-[40px] border-2 border-primary/20 dark:border-white/5 shadow-xl dark:shadow-none"
-                    >
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-lg font-bold mb-2">
-                                        Your Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.name ? "border-accent/50" : "border-primary/20"
-                                            } focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40 text-foreground`}
-                                        placeholder="How shall we call you?"
-                                    />
-                                    {errors.name && (
-                                        <p className="text-accent text-sm mt-2">{errors.name}</p>
-                                    )}
-                                </div>
-
-                                <div>
-                                    <label htmlFor="email" className="block text-lg font-bold mb-2">
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.email ? "border-accent/50" : "border-primary/10"
-                                            } focus:border-primary focus:outline-none transition-all shadow-sm text-foreground`}
-                                        placeholder="Where should we send our bird?"
-                                    />
-                                    {errors.email && (
-                                        <p className="text-accent text-sm mt-2">{errors.email}</p>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="company" className="block text-lg font-bold mb-2">
-                                    Your Village (Company/Project)
-                                </label>
-                                <input
-                                    type="text"
-                                    id="company"
-                                    name="company"
-                                    value={formData.company}
-                                    onChange={handleChange}
-                                    className="w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 border-primary/20 focus:border-primary focus:outline-none transition-all shadow-md placeholder:text-foreground/40 text-foreground"
-                                    placeholder="Tell us about your realm"
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="message" className="block text-lg font-bold mb-2">
-                                    Your Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows={5}
-                                    className={`w-full px-5 py-4 rounded-2xl bg-white dark:bg-card/50 border-2 ${errors.message ? "border-accent/50" : "border-primary/20"
-                                        } focus:border-primary focus:outline-none transition-all shadow-md resize-none placeholder:text-foreground/40 text-foreground`}
-                                    placeholder="Write your story here..."
-                                />
-                                {errors.message && (
-                                    <p className="text-accent text-sm mt-2">{errors.message}</p>
-                                )}
-                            </div>
-
-                            <button
-                                type="submit"
-                                disabled={isSubmitted}
-                                className="w-full button-primary !text-foreground flex items-center justify-center gap-3 py-5 text-xl disabled:opacity-50 disabled:cursor-not-allowed group transition-all"
-                            >
-                                {isSubmitted ? (
-                                    <>
-                                        <CheckCircle className="w-6 h-6" />
-                                        Message Sent to the Wind!
-                                    </>
-                                ) : (
-                                    <>
-                                        Send Your Message
-                                        <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                    </>
-                                )}
-                            </button>
-                        </form>
-                    </motion.div>
+                        </BlurFade>
+                    </div>
                 </div>
+
+                <BlurFade delay={0.4} inView>
+                    <div className="p-8 rounded-2xl border border-border bg-card shadow-sm">
+                        <form className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Name</label>
+                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="John Doe" />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Email</label>
+                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="john@example.com" />
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium">Message</label>
+                                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Tell us about your project..." />
+                            </div>
+                            <Button className="w-full py-6 text-lg rounded-xl">
+                                Send Message
+                            </Button>
+                        </form>
+                    </div>
+                </BlurFade>
             </div>
         </section>
     );

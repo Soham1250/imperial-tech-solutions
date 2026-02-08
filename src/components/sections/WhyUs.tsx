@@ -1,159 +1,81 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import {
-    Rocket,
-    Target,
-    Lightbulb,
-    Shield,
-    Zap,
-    Users,
-    TrendingUp,
-    Award
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import BlurFade from "@/components/magicui/BlurFade";
+import { AnimatedGridPattern } from "@/components/magicui/AnimatedGridPattern";
 import { cn } from "@/lib/utils";
 
-const features = [
+const reasons = [
     {
-        icon: Rocket,
-        title: "Fast Delivery",
-        description: "We move fast without compromising quality. Most projects delivered 30% faster than industry average.",
-        className: "md:col-span-2 md:row-span-1",
-        color: "primary"
+        title: "Data-Driven Strategy",
+        description: "We don't guess. We use analytics and market data to inform every design decision and line of code."
     },
     {
-        icon: Target,
-        title: "Results-Driven",
-        description: "We focus on metrics that matter. Every project is tied to clear outcomes.",
-        className: "md:col-span-1 md:row-span-1",
-        color: "secondary"
+        title: "Future-Proof Tech Stack",
+        description: "Built on Next.js 14, React Server Components, and edge computing for unmatched speed and SEO."
     },
     {
-        icon: Lightbulb,
-        title: "Innovation First",
-        description: "Stay ahead with cutting-edge AI and modern tech. We bring latest innovations.",
-        className: "md:col-span-1 md:row-span-2",
-        color: "accent"
+        title: "Conversion Focused",
+        description: "Beautiful design is meaningless if it doesn't sell. We prioritize user journeys that convert."
     },
     {
-        icon: Shield,
-        title: "Enterprise Security",
-        description: "Bank-level security and compliance. Your data is protected with industry best practices.",
-        className: "md:col-span-1 md:row-span-1",
-        color: "primary"
-    },
-    {
-        icon: Zap,
-        title: "AI-Powered",
-        description: "Leverage AI automation to scale faster. Intelligent systems that work 24/7.",
-        className: "md:col-span-2 md:row-span-1",
-        color: "secondary"
-    },
-    {
-        icon: Award,
-        title: "Quality Guaranteed",
-        description: "100% satisfaction or we make it right. We stand behind every line of code.",
-        className: "md:col-span-1 md:row-span-1",
-        color: "accent"
+        title: "Transparent Process",
+        description: "No black boxes. You get full visibility into our workflow, timeline, and deliverables."
     }
 ];
 
 export const WhyUs = () => {
     return (
-        <section id="why-us" className="py-24 px-6 bg-background-secondary relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-20">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/20 blur-[120px] rounded-full" />
-            </div>
+        <section id="why-us" className="py-24 px-6 relative overflow-hidden bg-background-secondary/50">
+            <AnimatedGridPattern
+                className={cn(
+                    "[mask-image:linear-gradient(to_bottom,transparent,white,transparent)]",
+                    "inset-0 h-full w-full opacity-50",
+                )}
+                maxOpacity={0.05}
+                numSquares={20}
+            />
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-                    whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-20"
-                >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-                        Why Choose <span className="text-primary">Imperial</span>?
-                    </h2>
-                    <p className="text-foreground/60 text-xl max-w-2xl mx-auto font-hand">
-                        We combine technical brilliance with a touch of whimsy to build products people actually love.
-                    </p>
-                </motion.div>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                <div className="space-y-8">
+                    <BlurFade inView>
+                        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                            Why Industry Leaders <br />
+                            <span className="text-primary">Choose Us</span>
+                        </h2>
+                    </BlurFade>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-auto gap-4 md:gap-6">
-                    {features.map((feature, i) => (
-                        <motion.div
-                            key={feature.title}
-                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
-                            whileHover={{
-                                scale: 1.02,
-                                transition: { duration: 0.2 }
-                            }}
-                            className={cn(
-                                "group p-8 rounded-[2rem] bg-white dark:bg-card/60 backdrop-blur-md border-2 border-primary/10 hover:border-primary/40 dark:border-white/5 dark:hover:border-primary/30 transition-all relative overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl dark:shadow-none",
-                                feature.className
-                            )}
-                        >
-                            {/* Inner moving gradient */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                <div className={`absolute inset-0 bg-gradient-to-br from-${feature.color}/5 to-transparent animate-gradient`} />
-                            </div>
+                    <BlurFade delay={0.2} inView>
+                        <p className="text-xl text-foreground/70 leading-relaxed">
+                            We bridge the gap between creative ambition and technical excellence.
+                            Our team functions as an extension of yours, dedicated to your long-term growth.
+                        </p>
+                    </BlurFade>
 
-                            <div className="relative z-10">
-                                <div className={cn(
-                                    "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500",
-                                    `bg-${feature.color}/10`
-                                )}>
-                                    <feature.icon className={cn("w-7 h-7", `text-${feature.color}`)} />
+                    <div className="space-y-6 pt-4">
+                        {reasons.map((reason, i) => (
+                            <BlurFade key={i} delay={0.3 + i * 0.1} inView>
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 mt-1">
+                                        <CheckCircle2 className="w-6 h-6 text-secondary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2">{reason.title}</h3>
+                                        <p className="text-foreground/60">{reason.description}</p>
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
-                                <p className="text-foreground/70 font-medium text-base leading-relaxed">
-                                    {feature.description}
-                                </p>
-                            </div>
-
-                            {/* Whimsical ornament */}
-                            <motion.div
-                                className={cn("absolute -bottom-4 -right-4 w-24 h-24 rounded-full blur-2xl opacity-20", `bg-${feature.color}`)}
-                                animate={{
-                                    scale: [1, 1.2, 1],
-                                    opacity: [0.1, 0.2, 0.1]
-                                }}
-                                transition={{ duration: 4, repeat: Infinity }}
-                            />
-                        </motion.div>
-                    ))}
+                            </BlurFade>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Counter Stats Section */}
-                <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 border-t-2 border-primary/5 pt-16">
-                    {[
-                        { value: "30+", label: "Technologies", desc: "Expertly curated stack", color: "primary" },
-                        { value: "24/7", label: "Availability", desc: "AI never sleeps", color: "secondary" },
-                        { value: "3x", label: "Efficiency", desc: "Faster time-to-market", color: "accent" }
-                    ].map((item, i) => (
-                        <motion.div
-                            key={item.label}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 + i * 0.1 }}
-                            className="text-center group"
-                        >
-                            <div className={cn("text-6xl font-bold mb-2 group-hover:scale-110 transition-transform duration-500", `text-${item.color}`)}>
-                                {item.value}
-                            </div>
-                            <div className="text-xl font-bold text-foreground/80 mb-1">{item.label}</div>
-                            <p className="text-foreground/50 text-sm">{item.desc}</p>
-                        </motion.div>
-                    ))}
+                <div className="relative lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl border border-border/10 bg-gradient-to-br from-primary/5 to-secondary/5 flex items-center justify-center">
+                    {/* Abstract visual or image */}
+                    <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:dither(0.5)]" />
+                    <div className="text-center p-8">
+                        <div className="text-9xl font-bold text-primary/70">#1</div>
+                        <div className="text-2xl font-bold text-foreground/40 mt-4">AGENCY CHOICE</div>
+                    </div>
                 </div>
             </div>
         </section>

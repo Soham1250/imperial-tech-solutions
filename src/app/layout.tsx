@@ -113,7 +113,6 @@ export const metadata: Metadata = {
 };
 
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { ScrollIntro } from "@/components/sections/ScrollIntro";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 export default function RootLayout({
@@ -128,7 +127,6 @@ export default function RootLayout({
       >
         <StructuredData />
         <ScrollProgress />
-        <ScrollIntro />
         <main className="relative min-h-screen">
           {children}
         </main>

@@ -1,237 +1,81 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { ArrowRight, ChevronRight, Zap, Sparkles } from "lucide-react";
+import React from "react";
 import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { PageLayout } from "../layout/PageLayout";
+import { AnimatedGridPattern } from "@/components/magicui/AnimatedGridPattern";
+import ShimmerButton from "@/components/magicui/ShimmerButton";
+import BlurFade from "@/components/magicui/BlurFade";
+import { cn } from "@/lib/utils";
 
 export const Hero = () => {
-    const [mounted, setMounted] = useState(false);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    useEffect(() => {
-        setMounted(true);
-        const handleMouseMove = (e: MouseEvent) => {
-            mouseX.set(e.clientX);
-            mouseY.set(e.clientY);
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [mouseX, mouseY]);
-
-    const rotateX = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [5, -5]);
-    const rotateY = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1200], [-5, 5]);
-
-    // Generate stable random values for particles to avoid purity errors
-    const particles = React.useMemo(() => {
-        return [...Array(20)].map((_, i) => ({
-            id: i,
-            x: Math.random() * 100 + "%",
-            rotateInitial: Math.random() * 360,
-            xAnimate: (Math.random() - 0.5) * 50 + "%",
-            rotateAnimate: Math.random() * 360 + 720,
-            duration: Math.random() * 10 + 10,
-            delay: Math.random() * 10,
-            type: i % 2 === 0 ? 'petal-a' : 'petal-b'
-        }));
-    }, []);
-
     return (
         <PageLayout>
             <section
-                id="home"
+                id="hero"
                 className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 overflow-hidden bg-background"
             >
-                {/* Ghibli Clouds and Hills BACKGROUND */}
-                <div className="absolute inset-0 pointer-events-none opacity-40">
-                    <motion.div
-                        className="absolute top-[20%] left-[-10%] w-[30rem] h-[15rem] bg-white dark:bg-primary/5 rounded-full blur-[80px]"
-                        animate={{ x: [0, 50, 0] }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.div
-                        className="absolute top-[40%] right-[-10%] w-[40rem] h-[20rem] bg-white dark:bg-secondary/5 rounded-full blur-[100px]"
-                        animate={{ x: [0, -70, 0] }}
-                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-secondary/30 to-transparent" />
-                </div>
-
-                {/* Floating Petals/Leaves */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {mounted && particles.map((p) => (
-                        <motion.div
-                            key={`petal-${p.id}`}
-                            className={`absolute ${p.type === 'petal-a' ? 'w-4 h-6 rounded-tr-full rounded-bl-full bg-accent/30' :
-                                'w-3 h-5 rounded-tl-full rounded-br-full bg-secondary/30'
-                                }`}
-                            initial={{
-                                x: p.x,
-                                y: -20,
-                                rotate: p.rotateInitial
-                            }}
-                            animate={{
-                                y: ["0vh", "110vh"],
-                                x: [null, p.xAnimate],
-                                rotate: [null, p.rotateAnimate]
-                            }}
-                            transition={{
-                                duration: p.duration,
-                                repeat: Infinity,
-                                ease: "linear",
-                                delay: p.delay
-                            }}
-                        />
-                    ))}
-                </div>
-
-                {/* Subtle Texture Overlay */}
-                <div
-                    className="absolute inset-0 opacity-[0.05] pointer-events-none"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                    }}
+                {/* Magic UI Background */}
+                <AnimatedGridPattern
+                    numSquares={30}
+                    maxOpacity={0.1}
+                    duration={3}
+                    repeatDelay={1}
+                    className={cn(
+                        "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+                        "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+                    )}
                 />
 
-                <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        whileHover={{ scale: 1.05, rotate: -2 }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/40 border-2 border-primary/30 text-primary-foreground text-lg mb-8 hover:bg-white/60 transition-all cursor-default backdrop-blur-sm shadow-sm"
-                    >
-                        <motion.div
-                            animate={{ rotate: [0, 10, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                        >
-                            <Zap className="w-5 h-5 fill-primary text-primary" />
-                        </motion.div>
-                        <span>Hand-Crafted Digital Solutions</span>
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.5, 1, 0.5]
-                            }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                        >
-                            <Sparkles className="w-5 h-5 text-accent" />
-                        </motion.div>
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 leading-[1.05] text-foreground"
-                    >
-                        <motion.div
-                            style={{
-                                rotateX,
-                                rotateY,
-                                transformStyle: 'preserve-3d',
-                            }}
-                        >
-                            Scale Faster with <br />
-                            <span className="text-gradient inline-block animate-gradient">
-                                <motion.span
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.3 }}
-                                    className="inline-block"
-                                    whileHover={{
-                                        scale: 1.05,
-                                        textShadow: "0 0 20px rgba(99, 102, 241, 0.5)"
-                                    }}
-                                >
-                                    Tech & AI Leverage
-                                </motion.span>
+                <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+                    {/* Badge */}
+                    <BlurFade delay={0.25} inView>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                        </motion.div>
-                    </motion.h1>
+                            <span className="text-sm font-semibold tracking-wide uppercase">
+                                Available for New Projects
+                            </span>
+                        </div>
+                    </BlurFade>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-lg md:text-xl text-foreground/60 max-w-3xl mb-12 leading-relaxed"
-                    >
-                        We build modern digital experiences and AI-first systems that help SMBs,
-                        startups, and professionals automate growth and dominate their market.
-                    </motion.p>
+                    {/* Headline */}
+                    <BlurFade delay={0.3} inView>
+                        <h1 className="text-5xl md:text-7xl font-sans font-bold leading-tight tracking-tight text-foreground">
+                            We Build <span className="text-primary italic">Digital Dreams</span> <br />
+                            That <span className="text-secondary">Scale.</span>
+                        </h1>
+                    </BlurFade>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row gap-6 items-center mb-16"
-                    >
-                        <motion.div
-                            whileHover={{ scale: 1.05, rotate: 1 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Link href="#contact" className="button-primary flex items-center gap-3 group text-lg px-10">
-                                Begin Your Journey
-                                <motion.div
-                                    animate={{ x: [0, 5, 0] }}
-                                    transition={{ duration: 1.5, repeat: Infinity }}
-                                >
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </motion.div>
+                    {/* Subheadline */}
+                    <BlurFade delay={0.4} inView>
+                        <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto font-sans leading-relaxed">
+                            For ambitious brands who demand excellence. We craft high-performance websites and applications that leave a lasting impression.
+                        </p>
+                    </BlurFade>
+
+                    {/* CTAs */}
+                    <BlurFade delay={0.5} inView>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                            <Link href="#contact">
+                                <ShimmerButton className="shadow-2xl font-bold text-lg px-8 py-4">
+                                    <span className="whitespace-pre-wrap text-center leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                                        Start Your Project
+                                    </span>
+                                </ShimmerButton>
                             </Link>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.05, rotate: -1 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Link
-                                href="#services"
-                                className="px-10 py-3.5 ghibli-glass hover:bg-white/60 transition-all flex items-center gap-3 group text-lg font-bold text-foreground"
-                            >
-                                Explore Our Craft
-                                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-primary" />
-                            </Link>
-                        </motion.div>
-                    </motion.div>
 
-                    {/* Enhanced trust indicators */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex flex-wrap items-center justify-center gap-10 text-lg text-foreground/60"
-                    >
-                        {[
-                            { label: "30+ Magic Technologies", delay: 0 },
-                            { label: "Swift Delivery", delay: 0.5 },
-                            { label: "Artisanal Code Quality", delay: 1 }
-                        ].map((item, i) => (
-                            <motion.div
-                                key={item.label}
-                                className="flex items-center gap-3"
-                                whileHover={{ scale: 1.1, color: "var(--color-primary)" }}
-                            >
-                                <motion.div
-                                    className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-primary' :
-                                        i === 1 ? 'bg-secondary' :
-                                            'bg-accent'
-                                        }`}
-                                    animate={{
-                                        scale: [1, 1.4, 1],
-                                        opacity: [0.6, 1, 0.6]
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        delay: item.delay
-                                    }}
-                                />
-                                <span>{item.label}</span>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                            <Link href="#portfolio">
+                                <button className="px-8 py-4 rounded-full border-2 border-primary/20 text-foreground font-semibold hover:bg-primary/5 transition-colors flex items-center gap-2 group text-lg">
+                                    View Our Work
+                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </Link>
+                        </div>
+                    </BlurFade>
                 </div>
             </section>
         </PageLayout>

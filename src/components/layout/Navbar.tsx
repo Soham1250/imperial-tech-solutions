@@ -50,7 +50,7 @@ export const Navbar = () => {
                         </motion.div>
                     </motion.div>
                     <span className="text-3xl font-bold tracking-tight text-foreground">
-                        <span className="font-cursive">Imperial</span><span className="text-secondary ml-1">Tech</span>
+                        <span className="font-bold">Imperial</span><span className="text-secondary ml-1">Tech</span>
                     </span>
                 </Link>
 

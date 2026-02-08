@@ -15,7 +15,7 @@ export const Footer = () => {
                             <Rocket className="text-primary w-7 h-7" />
                         </div>
                         <span className="text-2xl font-bold tracking-tight text-foreground">
-                            <span className="font-cursive">Imperial</span><span className="text-secondary">Tech</span>
+                            <span className="font-bold">Imperial</span><span className="text-secondary">Tech</span>
                         </span>
                     </Link>
                     <p className="text-foreground/70 text-lg leading-relaxed max-w-xs">
