@@ -1,3 +1,4 @@
+import { ScrollSequence } from "@/components/intro/ScrollSequence";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { MethodologyGrid } from "@/components/sections/MethodologyGrid";
@@ -12,6 +13,7 @@ import { Footer } from "@/components/layout/Footer";
 export default function Home() {
   return (
     <>
+      <ScrollSequence />
       <Navbar />
       <Hero />
       <Services />
