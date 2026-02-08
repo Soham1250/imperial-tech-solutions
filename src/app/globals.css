@@ -21,6 +21,15 @@
   --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
   --animate-slide: slide var(--speed) ease-in-out infinite alternate;
 
+  --shadow-tooltip-b: 8px 10px 10px -13px rgba(255, 255, 255, 1),
+    -8px 9px 10px -13px rgba(255, 255, 255, 1),
+    0px 23px 40px -10px rgba(255, 255, 255, 1);
+  --shadow-tooltip-t: 8px -10px 10px -13px rgba(255, 255, 255, 1),
+    -8px -9px 10px -13px rgba(255, 255, 255, 1),
+    0px -23px 40px -10px rgba(255, 255, 255, 1);
+  --shadow-tooltip-r: -12px 0px 12px -10px rgba(255, 255, 255, 1);
+  --shadow-tooltip-l: 12px 0px 12px -10px rgba(255, 255, 255, 1);
+
   @keyframes marquee {
     from {
       transform: translateX(0);

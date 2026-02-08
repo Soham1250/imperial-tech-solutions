@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import BlurFade from "@/components/magicui/BlurFade";
-import { Button } from "@/components/ui/button";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+// import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 import { Mail, MapPin, Phone } from "lucide-react";
 
@@ -49,21 +50,23 @@ export const Contact = () => {
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium">Name</label>
-                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="John Doe" />
+                                    <label className="text-xl font-bold font-cursive text-primary">Your Identity</label>
+                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:font-sans" placeholder="John Doe" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium">Email</label>
-                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="john@example.com" />
+                                    <label className="text-xl font-bold font-cursive text-primary">Digital Owl Address</label>
+                                    <input className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:font-sans" placeholder="john@example.com" />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Message</label>
-                                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Tell us about your project..." />
+                                <label className="text-xl font-bold font-cursive text-primary">Visualise Your Dream</label>
+                                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:font-sans" placeholder="Tell us about your project..." />
                             </div>
-                            <Button className="w-full py-6 text-lg rounded-xl">
-                                Send Message
-                            </Button>
+                            <div className="w-full flex justify-center">
+                                <InteractiveHoverButton className="w-full py-6 text-lg">
+                                    Send Message
+                                </InteractiveHoverButton>
+                            </div>
                         </form>
                     </div>
                 </BlurFade>

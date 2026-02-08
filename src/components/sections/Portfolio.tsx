@@ -5,28 +5,35 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import BlurFade from "@/components/magicui/BlurFade";
-import { Button } from "@/components/ui/button";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 const projects = [
     {
-        title: "FinTech Dashboard",
-        category: "Web Application",
+        title: "Nexus Finance Dashboard",
+        category: "Custom Web Development",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        description: "High-performance financial analytics platform handling millions of transactions with real-time visualization.",
+        href: "#",
+    },
+    {
+        title: "Lumina E-Commerce",
+        category: "E-Commerce Solutions",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2370&auto=format&fit=crop",
+        description: "A seamless, high-conversion shopping experience for a luxury lifestyle brand with AI product recommendations.",
+        href: "#",
+    },
+    {
+        title: "Vitality Health App",
+        category: "Mobile App Development",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1740&auto=format&fit=crop",
+        description: "Cross-platform wellness application integrating with wearables for real-time health tracking.",
+        href: "#",
+    },
+    {
+        title: "Growth Analytics Suite",
+        category: "SEO & Digital Marketing",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-        description: "Real-time financial analytics platform with AI-driven insights.",
-        href: "#",
-    },
-    {
-        title: "E-Commerce Rebrand",
-        category: "Brand & Development",
-        image: "https://images.unsplash.com/photo-1523726491678-bf852e717f63?q=80&w=2070&auto=format&fit=crop",
-        description: "Complete digital transformation for a luxury fashion retailer.",
-        href: "#",
-    },
-    {
-        title: "HealthTech Mobile App",
-        category: "Mobile Development",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-        description: "Telemedicine application connecting patients with specialists worldwide.",
+        description: "Comprehensive marketing dashboard unifying SEO, PPC, and social metrics for actionable insights.",
         href: "#",
     },
 ];
@@ -44,9 +51,9 @@ export const Portfolio = () => {
                     </BlurFade>
 
                     <BlurFade delay={0.2} inView>
-                        <Button variant="outline" className="rounded-full px-8 py-6 text-lg">
-                            View All Projects <ArrowUpRight className="ml-2 w-5 h-5" />
-                        </Button>
+                        <InteractiveHoverButton>
+                            View All Projects
+                        </InteractiveHoverButton>
                     </BlurFade>
                 </div>
 

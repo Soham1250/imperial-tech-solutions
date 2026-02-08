@@ -2,10 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageLayout } from "../layout/PageLayout";
 import { AnimatedGridPattern } from "@/components/magicui/AnimatedGridPattern";
-import ShimmerButton from "@/components/magicui/ShimmerButton";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import BlurFade from "@/components/magicui/BlurFade";
 import { cn } from "@/lib/utils";
 
@@ -61,18 +61,15 @@ export const Hero = () => {
                     <BlurFade delay={0.5} inView>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
                             <Link href="#contact">
-                                <ShimmerButton className="shadow-2xl font-bold text-lg px-8 py-4">
-                                    <span className="whitespace-pre-wrap text-center leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                                        Start Your Project
-                                    </span>
-                                </ShimmerButton>
+                                <InteractiveHoverButton>
+                                    Start Your Project
+                                </InteractiveHoverButton>
                             </Link>
 
                             <Link href="#portfolio">
-                                <button className="px-8 py-4 rounded-full border-2 border-primary/20 text-foreground font-semibold hover:bg-primary/5 transition-colors flex items-center gap-2 group text-lg">
+                                <InteractiveHoverButton>
                                     View Our Work
-                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </InteractiveHoverButton>
                             </Link>
                         </div>
                     </BlurFade>

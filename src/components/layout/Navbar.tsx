@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 const navLinks = [
     { name: "Services", href: "#services" },
@@ -82,8 +83,8 @@ export const Navbar = () => {
                             whileHover={{ scale: 1.05, rotate: 2 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Link href="#contact" className="button-primary text-sm px-8 py-3 !text-foreground">
-                                Connect
+                            <Link href="#contact">
+                                <InteractiveHoverButton>Connect</InteractiveHoverButton>
                             </Link>
                         </motion.div>
                     </div>
@@ -119,10 +120,10 @@ export const Navbar = () => {
                         ))}
                         <Link
                             href="#contact"
-                            className="button-primary text-center mt-2"
                             onClick={() => setIsMobileMenuOpen(false)}
+                            className="w-full flex justify-center mt-2"
                         >
-                            Get Started
+                            <InteractiveHoverButton className="w-full">Get Started</InteractiveHoverButton>
                         </Link>
                     </motion.div>
                 )}
